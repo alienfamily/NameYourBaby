@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		905059CA15EBCFA500393577 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059C915EBCFA500393577 /* icon.png */; };
+		905059CD15EBCFAA00393577 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059CC15EBCFAA00393577 /* icon@2x.png */; };
 		908C92A815EBCCAF00E3C718 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92A715EBCCAF00E3C718 /* UIKit.framework */; };
 		908C92AA15EBCCAF00E3C718 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92A915EBCCAF00E3C718 /* Foundation.framework */; };
 		908C92AC15EBCCAF00E3C718 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92AB15EBCCAF00E3C718 /* CoreGraphics.framework */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		905059C915EBCFA500393577 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		905059CC15EBCFAA00393577 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		908C92A315EBCCAF00E3C718 /* NameYourBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameYourBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908C92A715EBCCAF00E3C718 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		908C92A915EBCCAF00E3C718 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,6 +54,8 @@
 		908C929815EBCCAF00E3C718 = {
 			isa = PBXGroup;
 			children = (
+				905059CC15EBCFAA00393577 /* icon@2x.png */,
+				905059C915EBCFA500393577 /* icon.png */,
 				908C92AD15EBCCAF00E3C718 /* NameYourBaby */,
 				908C92A615EBCCAF00E3C718 /* Frameworks */,
 				908C92A415EBCCAF00E3C718 /* Products */,
@@ -151,6 +157,8 @@
 			files = (
 				908C92B215EBCCAF00E3C718 /* InfoPlist.strings in Resources */,
 				908C92BE15EBCCAF00E3C718 /* ViewController.xib in Resources */,
+				905059CA15EBCFA500393577 /* icon.png in Resources */,
+				905059CD15EBCFAA00393577 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +287,7 @@
 				908C92C315EBCCAF00E3C718 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
