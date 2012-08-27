@@ -6,6 +6,7 @@
 	<array>
 		<string>Alexandre</string>
 		<string>Alphonse</string>
+		<string>Alban</string>
 		<string>Alexis</string>
 		<string>Alfred</string>
 		<string>Achille</string>
@@ -17,6 +18,9 @@
 		<string>Adam</string>
 		<string>Armand</string>
 		<string>Constantin</string>
+		<string>Christophe</string>
+		<string>Corentin</string>
+		<string>Cédric</string>
 		<string>Corin</string>
 		<string>Anselme</string>
 		<string>Antoine</string>
@@ -28,7 +32,6 @@
 		<string>Bastien</string>
 		<string>Badouin</string>
 		<string>Baptiste</string>
-		<string>Cédric</string>
 		<string>Charlot</string>
 		<string>Aimé</string>
 		<string>Bernard</string>

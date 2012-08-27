@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		902E5E4F15EBD5F10051C538 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902E5E4E15EBD5F10051C538 /* CoreData.framework */; };
 		905059CA15EBCFA500393577 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059C915EBCFA500393577 /* icon.png */; };
 		905059CD15EBCFAA00393577 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059CC15EBCFAA00393577 /* icon@2x.png */; };
 		905059D015EBCFFF00393577 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059CF15EBCFFF00393577 /* favorite.png */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		902E5E4E15EBD5F10051C538 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		905059C915EBCFA500393577 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		905059CC15EBCFAA00393577 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		905059CF15EBCFFF00393577 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				902E5E4F15EBD5F10051C538 /* CoreData.framework in Frameworks */,
 				908C92A815EBCCAF00E3C718 /* UIKit.framework in Frameworks */,
 				908C92AA15EBCCAF00E3C718 /* Foundation.framework in Frameworks */,
 				908C92AC15EBCCAF00E3C718 /* CoreGraphics.framework in Frameworks */,
@@ -107,6 +110,7 @@
 		908C92A615EBCCAF00E3C718 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				902E5E4E15EBD5F10051C538 /* CoreData.framework */,
 				908C92A715EBCCAF00E3C718 /* UIKit.framework */,
 				908C92A915EBCCAF00E3C718 /* Foundation.framework */,
 				908C92AB15EBCCAF00E3C718 /* CoreGraphics.framework */,
