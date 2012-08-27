@@ -16,6 +16,8 @@
 		905059DA15EBD01800393577 /* pictoFemme@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059D515EBD01800393577 /* pictoFemme@2x.png */; };
 		905059DB15EBD01800393577 /* pictoHomme.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059D615EBD01800393577 /* pictoHomme.png */; };
 		905059DC15EBD01800393577 /* pictoHomme@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059D715EBD01800393577 /* pictoHomme@2x.png */; };
+		905059E315EBD0E900393577 /* NameYourBaby.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 905059E115EBD0E900393577 /* NameYourBaby.xcdatamodeld */; };
+		905059E915EBD20400393577 /* Babies.m in Sources */ = {isa = PBXBuildFile; fileRef = 905059E815EBD20400393577 /* Babies.m */; };
 		908C92A815EBCCAF00E3C718 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92A715EBCCAF00E3C718 /* UIKit.framework */; };
 		908C92AA15EBCCAF00E3C718 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92A915EBCCAF00E3C718 /* Foundation.framework */; };
 		908C92AC15EBCCAF00E3C718 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92AB15EBCCAF00E3C718 /* CoreGraphics.framework */; };
@@ -36,6 +38,9 @@
 		905059D515EBD01800393577 /* pictoFemme@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pictoFemme@2x.png"; sourceTree = "<group>"; };
 		905059D615EBD01800393577 /* pictoHomme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pictoHomme.png; sourceTree = "<group>"; };
 		905059D715EBD01800393577 /* pictoHomme@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pictoHomme@2x.png"; sourceTree = "<group>"; };
+		905059E215EBD0E900393577 /* NameYourBaby.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NameYourBaby.xcdatamodel; sourceTree = "<group>"; };
+		905059E715EBD20400393577 /* Babies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Babies.h; sourceTree = "<group>"; };
+		905059E815EBD20400393577 /* Babies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Babies.m; sourceTree = "<group>"; };
 		908C92A315EBCCAF00E3C718 /* NameYourBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameYourBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908C92A715EBCCAF00E3C718 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		908C92A915EBCCAF00E3C718 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -117,6 +122,9 @@
 				908C92B915EBCCAF00E3C718 /* ViewController.h */,
 				908C92BA15EBCCAF00E3C718 /* ViewController.m */,
 				908C92BC15EBCCAF00E3C718 /* ViewController.xib */,
+				905059E115EBD0E900393577 /* NameYourBaby.xcdatamodeld */,
+				905059E715EBD20400393577 /* Babies.h */,
+				905059E815EBD20400393577 /* Babies.m */,
 				908C92AE15EBCCAF00E3C718 /* Supporting Files */,
 			);
 			path = NameYourBaby;
@@ -208,6 +216,8 @@
 				908C92B415EBCCAF00E3C718 /* main.m in Sources */,
 				908C92B815EBCCAF00E3C718 /* AppDelegate.m in Sources */,
 				908C92BB15EBCCAF00E3C718 /* ViewController.m in Sources */,
+				905059E315EBD0E900393577 /* NameYourBaby.xcdatamodeld in Sources */,
+				905059E915EBD20400393577 /* Babies.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +336,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		905059E115EBD0E900393577 /* NameYourBaby.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				905059E215EBD0E900393577 /* NameYourBaby.xcdatamodel */,
+			);
+			currentVersion = 905059E215EBD0E900393577 /* NameYourBaby.xcdatamodel */;
+			path = NameYourBaby.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 908C929A15EBCCAF00E3C718 /* Project object */;
 }
