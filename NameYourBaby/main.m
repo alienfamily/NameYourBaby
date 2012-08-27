@@ -2,16 +2,17 @@
 //  main.m
 //  NameYourBaby
 //
-//  Created by Rémy ALEXANDRE on 05/10/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Bou on 27/08/12.
+//  Copyright (c) 2012 Bou. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+#import "AppDelegate.h"
+
 int main(int argc, char *argv[])
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
 }
