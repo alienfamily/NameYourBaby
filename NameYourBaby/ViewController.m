@@ -14,10 +14,18 @@
 
 @implementation ViewController
 
+@synthesize manageObjectContext;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    // Setting the UI
+    [self setTitle:@"Babies"];
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                                                target:self
+                                                                                action:@selector(sendFavorites)];
+    self.navigationItem.rightBarButtonItem = shareButton;
 }
 
 - (void)viewDidUnload

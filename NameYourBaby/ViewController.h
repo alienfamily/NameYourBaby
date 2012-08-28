@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Babies.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    NSManagedObjectContext *manageObjectContext;
+}
+
+@property (nonatomic, strong) NSManagedObjectContext *manageObjectContext;
 
 @end

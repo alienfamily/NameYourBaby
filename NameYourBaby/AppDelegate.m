@@ -20,6 +20,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    //Adding the navigation controller
+    navController = [[UINavigationController alloc] init];
+    navController.navigationBar.tintColor = [UIColor colorWithRed:148.f/255.f green:19.f/255.f blue:94.f/255.f alpha:1.f];
+    [self.window addSubview:navController.view];
+    
     
     // Checking if the managedObjectContext exist, if not we create it
     if (self.managedObjectContext == nil) {
@@ -28,6 +33,7 @@
     
     
     #if PREPROD
+    
     /************************************************************/
     /*          START - Cleaning the DB from all datas          */
     /************************************************************/
@@ -94,6 +100,11 @@
     
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
+    self.viewController.manageObjectContext = [self managedObjectContext];
+    //self.window.rootViewController = self.viewController;
+    
+    [navController pushViewController:self.viewController animated:NO];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
