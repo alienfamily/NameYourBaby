@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Babies.h"
 
-@interface ViewController : UIViewController {
-    NSManagedObjectContext *manageObjectContext;
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    NSManagedObjectContext  *manageObjectContext;
+    IBOutlet UITableView    *table;
 }
 
 @property (nonatomic, strong) NSManagedObjectContext *manageObjectContext;
+@property (nonatomic, strong) UITableView *table;
 
 @end
