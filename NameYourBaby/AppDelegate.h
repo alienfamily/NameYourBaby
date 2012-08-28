@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define PREPROD 1 // 1 pour la PREPROD et 0 pour la PROD
+
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -17,7 +19,7 @@
 @property (strong, nonatomic) ViewController *viewController;
 
 // Core data things
-@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 

@@ -19,7 +19,79 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // add things here
+    
+    
+    // Checking if the managedObjectContext exist, if not we create it
+    if (self.managedObjectContext == nil) {
+        self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    }
+    
+    
+    #if PREPROD
+    /************************************************************/
+    /*          START - Cleaning the DB from all datas          */
+    /************************************************************/
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *toDelete = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:toDelete];
+    [request setIncludesPropertyValues:NO];
+    NSError *err = nil;
+    
+    NSArray *babiesArray = [self.managedObjectContext executeFetchRequest:request error:&err];
+    for (NSManagedObject *name in babiesArray)
+        [self.managedObjectContext deleteObject:name];
+    for (NSManagedObject *type in babiesArray)
+        [self.managedObjectContext deleteObject:type];
+    for (NSManagedObject *fav in babiesArray)
+        [self.managedObjectContext deleteObject:fav];
+    
+    /************************************************************/
+    /*          END - Cleaning the DB from all datas            */
+    /************************************************************/
+    
+    /************************************************************/
+    /*                  START - Initializing DB                 */
+    /************************************************************/
+    
+    // Loading the plist file wich contains names and type
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *plistPath = [bundle pathForResource:@"initializeDB" ofType:@"plist"];
+    NSDictionary *dicoFromPlist = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    
+    
+    // Loading girls in DB, FAV=NO, TYPE=NO
+    NSArray *girlsArray = [dicoFromPlist objectForKey:@"Girls"];
+    for (NSString *girlName in girlsArray) {
+        Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
+                                                                inManagedObjectContext:self.managedObjectContext];
+        [babie setValue:girlName forKey:@"name"];
+        [babie setValue:[NSNumber numberWithBool:NO] forKey:@"type"];
+        [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+    }
+    
+    // Loading boys in DB, FAV=NO, TYPE=YES
+    NSArray *boysArray = [dicoFromPlist objectForKey:@"Boys"];
+    for (NSString *boyName in boysArray) {
+        Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
+                                                                inManagedObjectContext:self.managedObjectContext];
+        [babie setValue:boyName forKey:@"name"];
+        [babie setValue:[NSNumber numberWithBool:YES] forKey:@"type"];
+        [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+    }
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Saving changes failed: %@", error);
+    }
+    
+    /************************************************************/
+    /*                   END - Initializing DB                  */
+    /************************************************************/
+    
+    #endif
+    
+    
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

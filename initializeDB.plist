@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Garcons</key>
+	<key>Boys</key>
 	<array>
 		<string>Alexandre</string>
 		<string>Alphonse</string>
@@ -196,7 +196,7 @@
 		<string>Tristan</string>
 		<string>Victor</string>
 	</array>
-	<key>Filles</key>
+	<key>Girls</key>
 	<array>
 		<string>Amandine</string>
 		<string>Fabienne</string>
