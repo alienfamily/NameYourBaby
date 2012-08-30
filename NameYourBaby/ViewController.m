@@ -15,7 +15,7 @@
 
 @implementation ViewController
 
-@synthesize manageObjectContext, table, mutableBabies;
+@synthesize manageObjectContext, table, mutableBabies, sortedBabies, sortedKeys;
 
 - (void)viewDidLoad
 {
@@ -38,7 +38,7 @@
     /****************************************************************/
     /*   START - Retrieving datas from core data to tableView UI    */
     /****************************************************************/
-    
+    self.sortedBabies = [[NSMutableDictionary alloc] init];
     [self fetchrecords];
     
     /****************************************************************/
@@ -64,71 +64,61 @@
 /****************************************************************/
 -(void)fetchrecords {
     NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:manageObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
+    // Setting the main request to
+    // get every records from scratch
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:babiesEntity];
     NSSortDescriptor *keyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"key" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:keyDescriptor];
     [request setSortDescriptors:sortDescriptors];
-    //[request setResultType:NSDictionaryResultType];
-    //[request setReturnsDistinctResults:YES];
-    //[request setPropertiesToFetch:[NSArray arrayWithObject:@"key"]];
     
+    // Setting a second request to get the keys
     NSFetchRequest *getKeys = [[NSFetchRequest alloc] init];
     [getKeys setEntity:babiesEntity];
     [getKeys setResultType:NSDictionaryResultType];
     [getKeys setReturnsDistinctResults:YES];
     [getKeys setPropertiesToFetch:[NSArray arrayWithObject:@"key"]];
+    // Executing the second request
     NSError *err;
     NSArray *keys = [manageObjectContext executeFetchRequest:getKeys error:&err];
     if (!keys)
-        NSLog(@"A BIG ERROR OCCURS %@", err);
+        NSLog(@"A BIG ERROR OCCURS WHILE GETTING KEYS : %@", err);
     
-    
+    // Executing the first request
     NSError *error;
     NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
-
     if (!fetchResults)
-        NSLog(@"A BIG ERROR OCCURS %@", error);
+        NSLog(@"A BIG ERROR OCCURS WHILE GETTING ALL RECORDS: %@", error);
     
+    // Storing the records in the property mutableBabies
     [self setMutableBabies:fetchResults];
     
-    NSMutableDictionary *tempo = [[NSMutableDictionary alloc] init];
-    NSMutableArray *tab = [[NSMutableArray alloc] init];
+    // Ordering the records properly
+    // Each letter is a key which have as value an array of Babies
+    // The result is stored in a property sortedBabies
+    NSMutableArray *arrayTmp = [[NSMutableArray alloc] init];
     for (NSDictionary *key in keys) {
         for (Babies *babie in mutableBabies) {
-            if ([[key objectForKey:@"key"] isEqualToString:babie.key]) {
-                [tab addObject:babie];
-            }
+            if ([[key objectForKey:@"key"] isEqualToString:babie.key])
+                [arrayTmp addObject:babie];
         }
-        [tempo setObject:[tab mutableCopy] forKey:[key objectForKey:@"key"]];
-        [tab removeAllObjects];
+        [self.sortedBabies setObject:[arrayTmp mutableCopy] forKey:[key objectForKey:@"key"]];
+        [arrayTmp removeAllObjects];
     }
-    NSLog(@"%@", tempo);
     
+    // Populating the property sortedKeys
+    sortedKeys = [NSArray arrayWithArray:[[sortedBabies allKeys] sortedArrayUsingSelector:@selector(compare:)]];
 }
 
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSString *firstKey, *oldKey;
-    NSInteger nbSections=0;
-    
-    for (Babies *babie in mutableBabies) {
-        firstKey = babie.key;
-        if ([firstKey isEqualToString:oldKey]) {
-            
-        } else {
-            nbSections++;
-        }
-        oldKey = firstKey;
-    }
-    
-    return nbSections;
+    return [[sortedBabies allKeys] count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [[sortedBabies objectForKey:[sortedKeys objectAtIndex:section]] count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -136,15 +126,36 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+    }
+    
+    NSArray *babiesForSection = [NSArray arrayWithArray:[sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]];
+
+    Babies *babie = [babiesForSection objectAtIndex:[indexPath row]];
+
+    // Setting babie's name
+    [cell.textLabel setText:[babie name]];
+    
+    // Dealling with sex
+    if ([babie.type intValue] == 0) {
+        [cell.imageView setImage:[UIImage imageNamed:@"pictoFemme.png"]];
+    } else {
+        [cell.imageView setImage:[UIImage imageNamed:@"pictoHomme.png"]];
+    }
+    
+    // Dealling with favorites
+    if ([babie.fav intValue] == 1) {
+        UIImageView *picto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]];
+        cell.accessoryView = picto;
+    } else {
+        cell.accessoryView = nil;
     }
     
     return cell;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    return @"title";
+    return [sortedKeys objectAtIndex:section];
 }
 
 #pragma mark - Table view delegate
