@@ -60,45 +60,74 @@
 
 /****************************************************************/
 /*        fetchRecords method is used to retreive datas         */
-/*        from core data and stock them into a NSDictionary     */
+/*        from core data and stock them into a NSMutableArray   */
 /****************************************************************/
 -(void)fetchrecords {
-    /*
     NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:manageObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:babiesEntity];
     
-    // Get boys in an array
-    [request setPredicate:predicateBoys];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    [request setEntity:babiesEntity];
+    NSSortDescriptor *keyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"key" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:keyDescriptor];
     [request setSortDescriptors:sortDescriptors];
+    //[request setResultType:NSDictionaryResultType];
+    //[request setReturnsDistinctResults:YES];
+    //[request setPropertiesToFetch:[NSArray arrayWithObject:@"key"]];
+    
+    NSFetchRequest *getKeys = [[NSFetchRequest alloc] init];
+    [getKeys setEntity:babiesEntity];
+    [getKeys setResultType:NSDictionaryResultType];
+    [getKeys setReturnsDistinctResults:YES];
+    [getKeys setPropertiesToFetch:[NSArray arrayWithObject:@"key"]];
+    NSError *err;
+    NSArray *keys = [manageObjectContext executeFetchRequest:getKeys error:&err];
+    if (!keys)
+        NSLog(@"A BIG ERROR OCCURS %@", err);
+    
     
     NSError *error;
-    NSArray *boys = [NSArray arrayWithArray:[manageObjectContext executeFetchRequest:request error:&error]];
-    NSLog(@"%@", boys);
+    NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
+
+    if (!fetchResults)
+        NSLog(@"A BIG ERROR OCCURS %@", error);
     
-    NSString* st = [boys JSONString];
-    NSLog(@"JSON String: %@",st);
+    [self setMutableBabies:fetchResults];
     
-    //NSError *error;
-    //NSMutableDictionary *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
-    //if (!fetchResults)
-      //  NSLog(@"A BIG ERROR OCCURS %@", error);
+    NSMutableDictionary *tempo = [[NSMutableDictionary alloc] init];
+    NSMutableArray *tab = [[NSMutableArray alloc] init];
+    for (NSDictionary *key in keys) {
+        for (Babies *babie in mutableBabies) {
+            if ([[key objectForKey:@"key"] isEqualToString:babie.key]) {
+                [tab addObject:babie];
+            }
+        }
+        [tempo setObject:[tab mutableCopy] forKey:[key objectForKey:@"key"]];
+        [tab removeAllObjects];
+    }
+    NSLog(@"%@", tempo);
     
-    //[self setMutableBabies:fetchResults];
-     */
 }
 
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // UPDATE ME
-    return 1;
+    NSString *firstKey, *oldKey;
+    NSInteger nbSections=0;
+    
+    for (Babies *babie in mutableBabies) {
+        firstKey = babie.key;
+        if ([firstKey isEqualToString:oldKey]) {
+            
+        } else {
+            nbSections++;
+        }
+        oldKey = firstKey;
+    }
+    
+    return nbSections;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // UPDATE ME
     return 1;
 }
 
@@ -114,6 +143,7 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
     return @"title";
 }
 

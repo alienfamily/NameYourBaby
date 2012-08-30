@@ -27,10 +27,8 @@
     
     
     // Checking if the managedObjectContext exist, if not we create it
-    if (self.managedObjectContext == nil) {
+    if (self.managedObjectContext == nil)
         self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    }
-    
     
     #if PREPROD
     
@@ -93,9 +91,8 @@
     }
     
     NSError *error;
-    if (![self.managedObjectContext save:&error]) {
+    if (![self.managedObjectContext save:&error])
         NSLog(@"Saving changes failed : %@", error);
-    }
     
     /************************************************************/
     /*                   END - Initializing DB                  */
