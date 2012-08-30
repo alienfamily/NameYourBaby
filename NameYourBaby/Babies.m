@@ -14,5 +14,6 @@
 @dynamic name;
 @dynamic type;
 @dynamic fav;
+@dynamic key;
 
 @end

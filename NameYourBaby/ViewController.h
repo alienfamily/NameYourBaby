@@ -12,9 +12,13 @@
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSManagedObjectContext  *manageObjectContext;
     IBOutlet UITableView    *table;
+    NSMutableDictionary *mutableBabies;
 }
 
 @property (nonatomic, strong) NSManagedObjectContext *manageObjectContext;
 @property (nonatomic, strong) UITableView *table;
+@property (nonatomic, strong) NSMutableDictionary *mutableBabies;
+
+-(void)fetchrecords;
 
 @end

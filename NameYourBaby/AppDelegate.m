@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
 #import "ViewController.h"
+#import "JSONKit.h"
 
 @implementation AppDelegate
 
@@ -51,6 +51,8 @@
         [self.managedObjectContext deleteObject:type];
     for (NSManagedObject *fav in babiesArray)
         [self.managedObjectContext deleteObject:fav];
+    for (NSManagedObject *key in babiesArray)
+        [self.managedObjectContext deleteObject:key];
     
     /************************************************************/
     /*          END - Cleaning the DB from all datas            */
@@ -60,35 +62,39 @@
     /*                  START - Initializing DB                 */
     /************************************************************/
     
-    // Loading the plist file wich contains names and type
+    // Loading the json file wich contains keys, names and types
+    // Storing the content in a NSDictionary
     NSBundle *bundle = [NSBundle mainBundle];
-    NSString *plistPath = [bundle pathForResource:@"initializeDB" ofType:@"plist"];
-    NSDictionary *dicoFromPlist = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    NSString *plistPath = [bundle pathForResource:@"DBName" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:plistPath];
+    NSDictionary *dicoFromJson = [[NSDictionary alloc] init];
+    dicoFromJson = [jsonData objectFromJSONData];
     
+    NSArray *keyLetters = [NSArray arrayWithArray:[dicoFromJson allKeys]];
+    keyLetters = [keyLetters sortedArrayUsingSelector:@selector(compare:)];
     
-    // Loading girls in DB, FAV=NO, TYPE=NO
-    NSArray *girlsArray = [dicoFromPlist objectForKey:@"Girls"];
-    for (NSString *girlName in girlsArray) {
-        Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
-                                                                inManagedObjectContext:self.managedObjectContext];
-        [babie setValue:girlName forKey:@"name"];
-        [babie setValue:[NSNumber numberWithBool:NO] forKey:@"type"];
-        [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
-    }
-    
-    // Loading boys in DB, FAV=NO, TYPE=YES
-    NSArray *boysArray = [dicoFromPlist objectForKey:@"Boys"];
-    for (NSString *boyName in boysArray) {
-        Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
-                                                                inManagedObjectContext:self.managedObjectContext];
-        [babie setValue:boyName forKey:@"name"];
-        [babie setValue:[NSNumber numberWithBool:YES] forKey:@"type"];
-        [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+    for (NSString *letter in keyLetters) {
+        for (NSString *boyName in [[[dicoFromJson objectForKey:letter] objectForKey:@"Boys"] sortedArrayUsingSelector:@selector(compare:)]) {
+            Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
+                                                                    inManagedObjectContext:self.managedObjectContext];
+            [babie setValue:boyName forKey:@"name"];
+            [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+            [babie setValue:[NSNumber numberWithBool:YES] forKey:@"type"];
+            [babie setValue:letter forKey:@"key"];
+        }
+        for (NSString *girlName in [[[dicoFromJson objectForKey:letter] objectForKey:@"Girls"] sortedArrayUsingSelector:@selector(compare:)]) {
+            Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
+                                                                    inManagedObjectContext:self.managedObjectContext];
+            [babie setValue:girlName forKey:@"name"];
+            [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+            [babie setValue:[NSNumber numberWithBool:NO] forKey:@"type"];
+            [babie setValue:letter forKey:@"key"];
+        }
     }
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Saving changes failed: %@", error);
+        NSLog(@"Saving changes failed : %@", error);
     }
     
     /************************************************************/
@@ -97,11 +103,10 @@
     
     #endif
     
-    
+    // Adding my own viwController
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     self.viewController.manageObjectContext = [self managedObjectContext];
-    //self.window.rootViewController = self.viewController;
     
     [navController pushViewController:self.viewController animated:NO];
     

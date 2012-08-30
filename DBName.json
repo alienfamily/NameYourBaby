@@ -1,0 +1,540 @@
+{
+	"A": {
+		"Boys": [
+			"Alexandre",
+			"Alban",
+			"Alexis",
+			"Alfred",
+			"Achille",
+			"Anatole",
+			"André",
+			"Adolphe",
+			"Albert",
+			"Abel",
+			"Adam",
+			"Armand",
+			"Anselme",
+			"Antoine",
+			"Aimé",
+			"Alain",
+			"Appolinaire",
+			"Amaury",
+			"Ambroise",
+			"Amédée",
+			"Absolon",
+			"Anthony",
+			"Aristide",
+			"Armel",
+			"Arnaud",
+			"Auguste",
+			"Augustin",
+			"Aurélien",
+			"Aurèle",
+			"Appolinaire",
+			"Alphonse"
+		],
+		"Girls": [
+			"Amandine",
+			"Aurore",
+			"Alexandrie",
+			"Alexandra",
+			"Avril",
+			"Armelle",
+			"Arnaude",
+			"Aurélie",
+			"Aude",
+			"Andréa",
+			"Augustine",
+			"Andrée",
+			"Antoinette",
+			"Appoline",
+			"Arlette",
+			"Arianne",
+			"Angèle",
+			"Angeline",
+			"Alphonsine",
+			"Angelique",
+			"Angelica",
+			"Amélie",
+			"Angie",
+			"Anita",
+			"Anne",
+			"Annette",
+			"Amarante",
+			"Anastasia",
+			"Ambre",
+			"Aline",
+			"Albertine",
+			"Adélaïde",
+			"Aimée",
+			"Agathe",
+			"Agnès",
+			"Adelline",
+			"Adèle",
+			"Anaïs",
+			"Adhara",
+			"Amandine"
+		]
+	},
+	"B": {
+		"Boys": [
+			"Barnabé",
+			"Barthélémy",
+			"Bastien",
+			"Baptiste",
+			"Bernard",
+			"Boniface",
+			"Brice",
+			"Benjamin",
+			"Bertrand",
+			"Blaise",
+			"Basile"
+		],
+		"Girls": [
+			"Brigitte",
+			"Bernadette",
+			"Béatrice",
+			"Bella",
+			"Berthe",
+			"Blanche",
+			"Bénédicte",
+			"Benjamine"
+		]
+	},
+	"C": {
+		"Boys": [
+			"Constantin",
+			"Corentin",
+			"Cédric",
+			"Corin",
+			"Camille",
+			"Clément",
+			"Célestin",
+			"Christian",
+			"Cyril",
+			"Christophe"
+		],
+		"Girls": [
+			"Christianne",
+			"Clémentine",
+			"Clémence",
+			"Clotilde",
+			"Colette",
+			"Carine",
+			"Caroline",
+			"Cécile",
+			"Céline",
+			"Céleste",
+			"Christine",
+			"Christelle",
+			"Christina",
+			"Claire",
+			"Clarice",
+			"Claudine",
+			"Cerise",
+			"Chantal",
+			"Corrine",
+			"Camille"
+		]
+	},
+	"D": {
+		"Boys": [
+			"Damien",
+			"Désiré",
+			"David",
+			"Didier",
+			"Dominique",
+			"Denis",
+			"Danièl"
+		],
+		"Girls": [
+			"Dominique",
+			"Dorothé",
+			"Denise",
+			"Désirée",
+			"Delphine",
+			"Doriane"
+		]
+	},
+	"E": {
+		"Boys": [
+			"Edgard",
+			"Edouard",
+			"Emile",
+			"Emilien",
+			"Emmanuel",
+			"Esmé",
+			"Etienne",
+			"Eugène",
+			"Emric",
+			"Edmond"
+		],
+		"Girls": [
+			"Edwige",
+			"Aulalie",
+			"Emma",
+			"Elisabeth",
+			"Esther",
+			"Elise",
+			"Emmanuelle",
+			"Elodie",
+			"Eloïse",
+			"Emeline",
+			"Emilie",
+			"Edith",
+			"Eliane"
+		]
+	},
+	"F": {
+		"Boys": [
+			"Fabrice",
+			"Félicien",
+			"Félix",
+			"Ferdinand",
+			"Fernand",
+			"Firmin",
+			"Franck",
+			"François",
+			"Frédéric",
+			"Fabien"
+		],
+		"Girls": [
+			"Fabienne",
+			"Frédérique",
+			"Françoise",
+			"Florence",
+			"Florette",
+			"France",
+			"Fleur",
+			"Fabiola",
+			"Francine"
+		]
+	},
+	"G": {
+		"Boys": [
+			"Gabriel",
+			"Gaspard",
+			"Gaston",
+			"Gautier",
+			"Geoffrey",
+			"Geoffroi",
+			"Georges",
+			"Gérald",
+			"Gérard",
+			"Germain",
+			"Ghislain",
+			"Gilles",
+			"Grégoire",
+			"Guillaume",
+			"Gustave",
+			"Guy",
+			"Gaétan"
+		],
+		"Girls": [
+			"Ghislaine",
+			"Giselle",
+			"Gwenaelle",
+			"Gabrielle",
+			"Georgette"
+		]
+	},
+	"H": {
+		"Boys": [
+			"Hugues",
+			"henri",
+			"Hilaire",
+			"Honoré",
+			"Hubert",
+			"Hector"
+		],
+		"Girls": [
+			"Hortence",
+			"Hélène",
+			"Héloïse",
+			"Hyacinthe",
+			"Hannah",
+			"Henriette"
+		]
+	},
+	"I": {
+		"Boys": [
+			"Ignace",
+			"Isidore"
+		],
+		"Girls": [
+			"Inès",
+			"Isabelle",
+			"Irène"
+		]
+	},
+	"J": {
+		"Boys": [
+			"Jean",
+			"Jean-Baptiste",
+			"Jeanot",
+			"Jérémi",
+			"Joachim",
+			"Joël",
+			"José",
+			"Josèphe",
+			"Jules",
+			"Julien",
+			"Juste",
+			"Justin",
+			"Jacques"
+		],
+		"Girls": [
+			"Jeanine",
+			"Jeannette",
+			"Jeanne",
+			"Joceline",
+			"Joelle",
+			"Judith",
+			"Joséphine",
+			"Julie",
+			"Juliette",
+			"Jacqueline",
+			"Jacinthe"
+		]
+	},
+	"K": {
+		"Boys": [
+			"Kalis",
+			"Karime"
+		],
+		"Girls": [
+			"Kasia",
+			"Kaelys"
+		]
+	},
+	"L": {
+		"Boys": [
+			"Laurent",
+			"Léonard",
+			"Léopold",
+			"Lionel",
+			"Loïc",
+			"Louis",
+			"Luc",
+			"Lucas",
+			"Lucien",
+			"Léon"
+		],
+		"Girls": [
+			"Lucie",
+			"Lydie",
+			"Louise",
+			"Léonie",
+			"Luce",
+			"Lucette",
+			"Laure",
+			"Laurette",
+			"Léa",
+			"Laura",
+			"laurence",
+			"Lucile"
+		]
+	},
+	"M": {
+		"Boys": [
+			"Manuel",
+			"Marcel",
+			"Marcellin",
+			"Marius",
+			"Martin",
+			"Mathieu",
+			"Maurice",
+			"Maxime",
+			"Maximilien",
+			"Michel",
+			"Marc"
+		],
+		"Girls": [
+			"Michelle",
+			"Mireille",
+			"Muriel",
+			"Monique",
+			"Morgane",
+			"Myriam",
+			"Margot",
+			"Marguerite",
+			"Marie",
+			"Maria",
+			"Mélanie",
+			"Mélissa",
+			"Marianne",
+			"Marise",
+			"Marielle",
+			"Mariette",
+			"Marine",
+			"Martine",
+			"Mathilde",
+			"Madeleine",
+			"Madeline",
+			"Manon",
+			"Mirabelle"
+		]
+	},
+	"N": {
+		"Boys": [
+			"Nathan",
+			"Noé",
+			"Norbert",
+			"Nicolas"
+		],
+		"Girls": [
+			"Nicolette",
+			"Ninon",
+			"Nadia",
+			"Nadine",
+			"Nathalie",
+			"Noémie"
+		]
+	},
+	"O": {
+		"Boys": [
+			"Olivier"
+		],
+		"Girls": [
+			"Odette",
+			"Olivia",
+			"Olive",
+			"Odile"
+		]
+	},
+	"P": {
+		"Boys": [
+			"Pascal",
+			"Paul",
+			"Pierre",
+			"Philipe",
+			"Patrice"
+		],
+		"Girls": [
+			"Paulette",
+			"Pauline",
+			"Pénélope",
+			"Pauline",
+			"Pascaline",
+			"Edgard",
+			"Pascale"
+		]
+	},
+	"Q": {
+		"Boys": [
+			"Quentin"
+		],
+		"Girls": [
+			"Quincy"
+		]
+	},
+	"R": {
+		"Boys": [
+			"Rémy",
+			"Raymond",
+			"Raoul",
+			"Raphael",
+			"Régis",
+			"Renaud",
+			"René",
+			"Robert",
+			"Rodolphe",
+			"Romain",
+			"Rémi"
+		],
+		"Girls": [
+			"Régine",
+			"Roseline",
+			"Roxane",
+			"Renée",
+			"Rachel",
+			"Edgard",
+			"Rosalie"
+		]
+	},
+	"S": {
+		"Boys": [
+			"Salomon",
+			"Sébastien",
+			"Serges",
+			"Simon",
+			"Stéphane",
+			"Sylvain",
+			"Samuel"
+		],
+		"Girls": [
+			"Solange",
+			"Sidonie",
+			"Simone",
+			"Sophie",
+			"Stéphanie",
+			"Suzanne",
+			"Sylvaine",
+			"Sylvie",
+			"Suzette",
+			"Suzanne",
+			"Sabine",
+			"Sarah",
+			"Salomé",
+			"Séverine"
+		]
+	},
+	"T": {
+		"Boys": [
+			"Thierry",
+			"Tony",
+			"Théo",
+			"Théodore",
+			"Thomas",
+			"Thibault",
+			"Théophile",
+			"Tristan",
+			"Timothé"
+		],
+		"Girls": [
+			"Thérèse"
+		]
+	},
+	"V": {
+		"Boys": [
+			"Vincent",
+			"Victor"
+		],
+		"Girls": [
+			"Véronique"
+		]
+	},
+	"X": {
+		"Boys": [
+			"Xavier",
+			"Victor"
+		],
+		"Girls": [
+			"Xavière",
+			"Xaverine"
+		]
+	},
+	"Y": {
+		"Boys": [
+			"Yvon",
+			"Yves",
+			"Yannick",
+			"Yann"
+		],
+		"Girls": [
+			"Yseult",
+			"Yolande",
+			"Yvette",
+			"Yvonne"
+		]
+	},
+	"Z": {
+		"Boys": [
+			"Zacharie"
+		],
+		"Girls": [
+			"Zoé",
+			"Zahia"
+		]
+	}
+}

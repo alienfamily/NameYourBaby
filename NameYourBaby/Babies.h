@@ -13,6 +13,7 @@
 @interface Babies : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * key;
 @property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSNumber * fav;
 
