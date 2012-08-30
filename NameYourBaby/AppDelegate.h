@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define PREPROD 1 // 1 pour la PREPROD et 0 pour la PROD
+#define PREPROD 1 // 1 for PREPROD and 0 for PROD
 
 @class ViewController;
 

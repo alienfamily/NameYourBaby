@@ -83,7 +83,7 @@
     NSError *err;
     NSArray *keys = [manageObjectContext executeFetchRequest:getKeys error:&err];
     if (!keys)
-        NSLog(@"A BIG ERROR OCCURS WHILE GETTING KEYS : %@", err);
+        NSLog(@"A BIG ERROR OCCURS WHILE GETTING KEYS: %@", err);
     
     // Executing the first request
     NSError *error;
@@ -161,7 +161,22 @@
 #pragma mark - Table view delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSManagedObject *babie = [[NSArray arrayWithArray:[sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]] objectAtIndex:[indexPath row]];
     
+    if ([tableView cellForRowAtIndexPath:indexPath].accessoryView == nil) {
+        UIImageView *picto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]];
+        [tableView cellForRowAtIndexPath:indexPath].accessoryView = picto;
+        [babie setValue:[NSNumber numberWithBool:YES] forKey:@"fav"];
+    } else {
+        [tableView cellForRowAtIndexPath:indexPath].accessoryView = nil;
+        [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+    }
+    
+    NSError *error;
+    if (![self.manageObjectContext save:&error]) {
+        NSLog(@"A BIG ERROR OCCURS WHILE UPDATING FAV: %@", error);
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
