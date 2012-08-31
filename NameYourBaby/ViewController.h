@@ -15,6 +15,8 @@
     NSMutableArray *mutableBabies;
     NSMutableDictionary *sortedBabies;
     NSArray *sortedKeys;
+    NSInteger btnBoys;
+    NSInteger btnGirls;
 }
 
 @property (nonatomic, strong) NSManagedObjectContext *manageObjectContext;
@@ -24,5 +26,6 @@
 @property (nonatomic, strong) NSArray *sortedKeys;
 
 -(void)fetchrecords;
+-(IBAction)genderSelected:(id)sender;
 
 @end

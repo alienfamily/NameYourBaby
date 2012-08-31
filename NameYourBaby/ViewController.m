@@ -67,8 +67,18 @@
     
     // Setting the main request to
     // get every records from scratch
+    
+    NSPredicate *predicate;
+    if (btnGirls == 1)
+        predicate = [NSPredicate predicateWithFormat:@"type ==0"];
+    if (btnBoys == 1)
+        predicate = [NSPredicate predicateWithFormat:@"type ==1"];
+    if (btnBoys == 0 && btnGirls == 0)
+        predicate = [NSPredicate predicateWithFormat:@"type == 0 OR type == 1"];
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:babiesEntity];
+    [request setPredicate:predicate];
     NSSortDescriptor *keyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"key" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:keyDescriptor];
     [request setSortDescriptors:sortDescriptors];
@@ -109,6 +119,40 @@
     
     // Populating the property sortedKeys
     sortedKeys = [NSArray arrayWithArray:[[sortedBabies allKeys] sortedArrayUsingSelector:@selector(compare:)]];
+}
+
+/****************************************************************/
+/*      genderSelected method is used to filter by gender       */
+/****************************************************************/
+-(IBAction)genderSelected:(id)sender {
+    if ([[(UIButton *)sender currentTitle] isEqualToString:@"Boys"]) {
+        switch (btnBoys) {
+            case 0:
+                btnBoys = 1;
+                btnGirls = 0;
+                break;
+            case 1:
+                btnBoys = 0;
+                break;
+            default:
+                break;
+        }
+    } else {
+        switch (btnGirls) {
+            case 0:
+                btnGirls = 1;
+                btnBoys = 0;
+                break;
+            case 1:
+                btnGirls = 0;
+                break;
+            default:
+                break;
+        }
+    }
+    
+    [self fetchrecords];
+    [table reloadData];
 }
 
 #pragma mark - Table view data source
