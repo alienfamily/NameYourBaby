@@ -54,7 +54,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    // return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
@@ -67,7 +68,6 @@
     
     // Setting the main request to
     // get every records from scratch
-    
     NSPredicate *predicate;
     if (btnGirls == 1)
         predicate = [NSPredicate predicateWithFormat:@"type ==0"];
@@ -83,13 +83,13 @@
     NSArray *sortDescriptors = [NSArray arrayWithObject:keyDescriptor];
     [request setSortDescriptors:sortDescriptors];
     
-    // Setting a second request to get the keys
+    // Setting and executing a second
+    // request to get the keys
     NSFetchRequest *getKeys = [[NSFetchRequest alloc] init];
     [getKeys setEntity:babiesEntity];
     [getKeys setResultType:NSDictionaryResultType];
     [getKeys setReturnsDistinctResults:YES];
     [getKeys setPropertiesToFetch:[NSArray arrayWithObject:@"key"]];
-    // Executing the second request
     NSError *err;
     NSArray *keys = [manageObjectContext executeFetchRequest:getKeys error:&err];
     if (!keys)
@@ -101,7 +101,6 @@
     if (!fetchResults)
         NSLog(@"A BIG ERROR OCCURS WHILE GETTING ALL RECORDS: %@", error);
     
-    // Storing the records in the property mutableBabies
     [self setMutableBabies:fetchResults];
     
     // Ordering the records properly
@@ -117,7 +116,6 @@
         [arrayTmp removeAllObjects];
     }
     
-    // Populating the property sortedKeys
     sortedKeys = [NSArray arrayWithArray:[[sortedBabies allKeys] sortedArrayUsingSelector:@selector(compare:)]];
 }
 
@@ -182,10 +180,8 @@
     }
     
     NSArray *babiesForSection = [NSArray arrayWithArray:[sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]];
-
     Babies *babie = [babiesForSection objectAtIndex:[indexPath row]];
 
-    // Setting babie's name
     [cell.textLabel setText:[babie name]];
     
     // Dealling with sex
