@@ -28,7 +28,7 @@
     [self setTitle:@"Babies"];
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                 target:self
-                                                                                action:@selector(sendFavorites)];
+                                                                                 action:@selector(sendFavorites:)];
     self.navigationItem.rightBarButtonItem = shareButton;
     
     /****************************************************************/
@@ -155,6 +155,14 @@
     [table reloadData];
 }
 
+/****************************************************************/
+/*      sendFavorites method create an e-mail                   */
+/*      with a list of babie's names                            */
+/****************************************************************/
+-(void)sendFavorites:(id)sender {
+    
+}
+
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -221,6 +229,10 @@
         NSLog(@"A BIG ERROR OCCURS WHILE UPDATING FAV: %@", error);
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return sortedKeys;
 }
 
 @end

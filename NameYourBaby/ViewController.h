@@ -27,5 +27,6 @@
 
 -(void)fetchrecords;
 -(IBAction)genderSelected:(id)sender;
+-(void)sendFavorites:(id)sender;
 
 @end
