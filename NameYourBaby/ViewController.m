@@ -20,10 +20,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    /****************************************************************/
-    /*                     START - Setting UI                       */
-    /****************************************************************/
     
     [self setTitle:@"Babies"];
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
@@ -31,21 +27,10 @@
                                                                                  action:@selector(sendFavorites:)];
     self.navigationItem.rightBarButtonItem = shareButton;
     
-    /****************************************************************/
-    /*                     END - Setting UI                         */
-    /****************************************************************/
-    
-    /****************************************************************/
-    /*   START - Retrieving datas from core data to tableView UI    */
-    /****************************************************************/
     self.sortedBabies = [[NSMutableDictionary alloc] init];
     sortDescriptorForBabiesForSection = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     descriptorsForBabiesForSection = [NSArray arrayWithObject:sortDescriptorForBabiesForSection];
     [self fetchrecords];
-    
-    /****************************************************************/
-    /*    END - Retrieving datas from core data to tableView UI     */
-    /****************************************************************/
 }
 
 - (void)viewDidUnload
@@ -175,10 +160,19 @@
         NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
         if (!fetchResults)
             NSLog(@"A BIG ERROR OCCURS WHILE GETTING FAVORITES: %@", error);
-        for (Babies *element in fetchResults)
-            emailBody = [emailBody stringByAppendingString:[[element name] stringByAppendingString:@"\n"]];
-        [mailer setMessageBody:emailBody isHTML:NO];
-        [self presentModalViewController:mailer animated:YES];
+        if ([fetchResults count] == 0) {
+            UIAlertView *noBabies = [[UIAlertView alloc] initWithTitle:@"No name selected"
+                                                               message:@"Select at least one name to share it :)"
+                                                              delegate:nil
+                                                     cancelButtonTitle:@"OK"
+                                                     otherButtonTitles:nil];
+            [noBabies show];
+        } else {
+            for (Babies *element in fetchResults)
+                emailBody = [emailBody stringByAppendingString:[[element name] stringByAppendingString:@"\n"]];
+            [mailer setMessageBody:emailBody isHTML:NO];
+            [self presentModalViewController:mailer animated:YES];
+        }
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
                                                         message:@"no mail available"
