@@ -159,12 +159,14 @@
 /*      with a list of babie's names                            */
 /****************************************************************/
 -(void)sendFavorites:(id)sender {
-    /*if ([MFMailComposeViewController canSendMail]) {
+    if ([MFMailComposeViewController canSendMail]) {
+        NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:manageObjectContext];
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
-        NSString *emailBody;
+        NSString *emailBody = [[NSString alloc] initWithFormat:@""];
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fav == 1"];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:babiesEntity];
         [request setPredicate:predicate];
         NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
         NSArray *sortDescriptors = [NSArray arrayWithObject:nameDescriptor];
@@ -173,6 +175,10 @@
         NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
         if (!fetchResults)
             NSLog(@"A BIG ERROR OCCURS WHILE GETTING FAVORITES: %@", error);
+        for (Babies *element in fetchResults)
+            emailBody = [emailBody stringByAppendingString:[[element name] stringByAppendingString:@"\n"]];
+        [mailer setMessageBody:emailBody isHTML:NO];
+        [self presentModalViewController:mailer animated:YES];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
                                                         message:@"no mail available"
@@ -180,7 +186,23 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-    }*/
+    }
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            break;
+        case MFMailComposeResultSaved:
+            break;
+        case MFMailComposeResultFailed:
+            break;
+        case MFMailComposeResultSent:
+            break;
+        default:
+            break;
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
