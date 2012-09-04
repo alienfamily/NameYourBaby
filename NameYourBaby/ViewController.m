@@ -15,7 +15,7 @@
 
 @implementation ViewController
 
-@synthesize manageObjectContext, table, mutableBabies, sortedBabies, sortedKeys;
+@synthesize manageObjectContext, table, mutableBabies, sortedBabies, sortedKeys, sortDescriptorForBabiesForSection, descriptorsForBabiesForSection, babiesForSection;
 
 - (void)viewDidLoad
 {
@@ -39,6 +39,8 @@
     /*   START - Retrieving datas from core data to tableView UI    */
     /****************************************************************/
     self.sortedBabies = [[NSMutableDictionary alloc] init];
+    sortDescriptorForBabiesForSection = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    descriptorsForBabiesForSection = [NSArray arrayWithObject:sortDescriptorForBabiesForSection];
     [self fetchrecords];
     
     /****************************************************************/
@@ -54,7 +56,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -116,7 +117,7 @@
         [arrayTmp removeAllObjects];
     }
     
-    sortedKeys = [NSArray arrayWithArray:[[sortedBabies allKeys] sortedArrayUsingSelector:@selector(compare:)]];
+    sortedKeys = [NSArray arrayWithArray:[[self.sortedBabies allKeys] sortedArrayUsingSelector:@selector(compare:)]];
 }
 
 /****************************************************************/
@@ -179,7 +180,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     
-    NSArray *babiesForSection = [NSArray arrayWithArray:[sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]];
+    babiesForSection = [NSArray arrayWithArray:[sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]];
+    babiesForSection = [babiesForSection sortedArrayUsingDescriptors:descriptorsForBabiesForSection];
     Babies *babie = [babiesForSection objectAtIndex:[indexPath row]];
 
     [cell.textLabel setText:[babie name]];
