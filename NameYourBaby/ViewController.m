@@ -159,7 +159,28 @@
 /*      with a list of babie's names                            */
 /****************************************************************/
 -(void)sendFavorites:(id)sender {
-    
+    /*if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        NSString *emailBody;
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fav == 1"];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setPredicate:predicate];
+        NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:nameDescriptor];
+        [request setSortDescriptors:sortDescriptors];
+        NSError *error;
+        NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
+        if (!fetchResults)
+            NSLog(@"A BIG ERROR OCCURS WHILE GETTING FAVORITES: %@", error);
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
+                                                        message:@"no mail available"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }*/
 }
 
 #pragma mark - Table view data source
@@ -180,7 +201,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     
-    babiesForSection = [NSArray arrayWithArray:[sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]];
+    babiesForSection = [NSArray arrayWithArray:[self.sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]];
     babiesForSection = [babiesForSection sortedArrayUsingDescriptors:descriptorsForBabiesForSection];
     Babies *babie = [babiesForSection objectAtIndex:[indexPath row]];
 
@@ -211,7 +232,7 @@
 #pragma mark - Table view delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSManagedObject *babie = [[NSArray arrayWithArray:[sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]] objectAtIndex:[indexPath row]];
+    NSManagedObject *babie = [[[NSArray arrayWithArray:[self.sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]] sortedArrayUsingDescriptors:descriptorsForBabiesForSection] objectAtIndex:[indexPath row]];
     
     if ([tableView cellForRowAtIndexPath:indexPath].accessoryView == nil) {
         UIImageView *picto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]];

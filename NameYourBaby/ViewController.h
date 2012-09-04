@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "Babies.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate> {
     NSManagedObjectContext  *manageObjectContext;
     IBOutlet UITableView    *table;
     NSMutableArray *mutableBabies;
@@ -33,6 +34,6 @@
 
 -(void)fetchrecords;
 -(IBAction)genderSelected:(id)sender;
--(void)sendFavorites:(id)sender;
+-(IBAction)sendFavorites:(id)sender;
 
 @end

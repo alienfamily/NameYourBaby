@@ -28,6 +28,7 @@
 		908C92B815EBCCAF00E3C718 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C92B715EBCCAF00E3C718 /* AppDelegate.m */; };
 		908C92BB15EBCCAF00E3C718 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C92BA15EBCCAF00E3C718 /* ViewController.m */; };
 		908C92BE15EBCCAF00E3C718 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C92BC15EBCCAF00E3C718 /* ViewController.xib */; };
+		90B3A97B15F628CB0037629B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B3A97A15F628CB0037629B /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		908C92B915EBCCAF00E3C718 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		908C92BA15EBCCAF00E3C718 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		908C92BD15EBCCAF00E3C718 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		90B3A97A15F628CB0037629B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B3A97B15F628CB0037629B /* MessageUI.framework in Frameworks */,
 				902E5E4F15EBD5F10051C538 /* CoreData.framework in Frameworks */,
 				908C92A815EBCCAF00E3C718 /* UIKit.framework in Frameworks */,
 				908C92AA15EBCCAF00E3C718 /* Foundation.framework in Frameworks */,
@@ -123,6 +126,7 @@
 		908C92A615EBCCAF00E3C718 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90B3A97A15F628CB0037629B /* MessageUI.framework */,
 				902E5E4E15EBD5F10051C538 /* CoreData.framework */,
 				908C92A715EBCCAF00E3C718 /* UIKit.framework */,
 				908C92A915EBCCAF00E3C718 /* Foundation.framework */,
