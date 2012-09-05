@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "JSONKit.h"
+#import "OLGhostAlertView.h"
 
 @interface ViewController ()
 
@@ -159,14 +160,18 @@
         NSError *error;
         NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
         if (!fetchResults)
-            NSLog(@"A BIG ERROR OCCURS WHILE GETTING FAVORITES: %@", error);
+            NSLog(@"A BIG ERROR OCCURS WHILE RETRIEVING FAVORITES: %@", error);
         if ([fetchResults count] == 0) {
-            UIAlertView *noBabies = [[UIAlertView alloc] initWithTitle:@"No name selected"
+            OLGhostAlertView *ghost = [[OLGhostAlertView alloc] initWithTitle:@"No name selected" message:@"Select at least one name to share it :)" timeout:3 dismissible:YES];
+            [ghost show];
+            
+            
+            /*UIAlertView *noBabies = [[UIAlertView alloc] initWithTitle:@"No name selected"
                                                                message:@"Select at least one name to share it :)"
                                                               delegate:nil
                                                      cancelButtonTitle:@"OK"
                                                      otherButtonTitles:nil];
-            [noBabies show];
+            [noBabies show];*/
         } else {
             for (Babies *element in fetchResults)
                 emailBody = [emailBody stringByAppendingString:[[element name] stringByAppendingString:@"\n"]];
@@ -260,9 +265,9 @@
     }
     
     NSError *error;
-    if (![self.manageObjectContext save:&error]) {
+    if (![self.manageObjectContext save:&error])
         NSLog(@"A BIG ERROR OCCURS WHILE UPDATING FAV: %@", error);
-    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
