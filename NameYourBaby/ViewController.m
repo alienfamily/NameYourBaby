@@ -162,7 +162,7 @@
         if (!fetchResults)
             NSLog(@"A BIG ERROR OCCURS WHILE RETRIEVING FAVORITES: %@", error);
         if ([fetchResults count] == 0) {
-            OLGhostAlertView *ghost = [[OLGhostAlertView alloc] initWithTitle:@"No name selected" message:@"Select at least one name to share it :)" timeout:5 dismissible:YES];
+            OLGhostAlertView *ghost = [[OLGhostAlertView alloc] initWithTitle:@"No name selected" message:@"Select at least one name to share it :)" timeout:2 dismissible:YES];
             [ghost show];
         } else {
             for (Babies *element in fetchResults)

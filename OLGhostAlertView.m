@@ -37,6 +37,10 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    
+    CGRect fullscreenRect = [self getScreenBoundsForCurrentOrientation];
+    CGFloat bottomMargin = 315.0f;
+    
     if (self) {
         self.layer.cornerRadius = 8.0f;
         self.backgroundColor = [UIColor colorWithWhite:.0f alpha:.85];
@@ -76,6 +80,7 @@
                                                    object:nil];
         
     }
+    self.frame = CGRectMake(self.frame.origin.x, fullscreenRect.size.height - self.frame.size.height - bottomMargin, self.frame.size.width, self.frame.size.height);
     return self;
 }
 
@@ -178,8 +183,6 @@
 
 - (void)show
 {
-    CGRect fullscreenRect = [self getScreenBoundsForCurrentOrientation];
-    
     id appDelegate = [[UIApplication sharedApplication] delegate];
     UIWindow *window = [appDelegate window];
     
@@ -188,7 +191,6 @@
     } else {
         [window.rootViewController.view addSubview:self];
     }
-    //    [[[[UIApplication sharedApplication] windows] lastObject] addSubview:self];
     
     CGFloat bottomMargin;
     
@@ -198,9 +200,12 @@
         bottomMargin = 50;
     }
     
-    [UIView animateWithDuration:0.5 animations:^{
-        self.alpha = 1;
-        self.frame = CGRectMake(self.frame.origin.x, fullscreenRect.size.height - self.frame.size.height - bottomMargin, self.frame.size.width, self.frame.size.height);
+    CGAffineTransform trans = CGAffineTransformScale(self.transform, 0.01, 0.01);
+    self.transform = trans;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.alpha = 1.0f;
+        self.transform = CGAffineTransformScale(self.transform, 100.0, 100.0);
     } completion:^(BOOL finished){
         [NSTimer scheduledTimerWithTimeInterval:self.timeout target:self selector:@selector(hide) userInfo:nil repeats:NO];
     }];
