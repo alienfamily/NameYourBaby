@@ -38,12 +38,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.layer.cornerRadius = 4.0f;
-        //self.layer.shadowColor = [UIColor blackColor].CGColor;
-        //self.layer.shadowOpacity = 1.f;
-        //self.layer.shadowRadius = 2.5f;
-        //self.layer.shadowOffset = CGSizeMake(0, 2);
-        self.backgroundColor = [UIColor colorWithWhite:0 alpha:.87];
+        self.layer.cornerRadius = 8.0f;
+        self.backgroundColor = [UIColor colorWithWhite:.0f alpha:.85];
         self.alpha = 0;
         
         _title = [[UILabel alloc] initWithFrame:CGRectMake(HORIZONTAL_PADDING, VERTICAL_PADDING, 0, 0)];
@@ -197,7 +193,7 @@
     CGFloat bottomMargin;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        bottomMargin = 250;
+        bottomMargin = 315;
     } else {
         bottomMargin = 50;
     }

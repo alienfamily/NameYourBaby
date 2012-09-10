@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900226C115FE173C00FABCA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900226C015FE173C00FABCA3 /* QuartzCore.framework */; };
 		9027D46E15F6B39400F4890A /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027D46C15F6B39400F4890A /* favorite.png */; };
 		9027D46F15F6B39400F4890A /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027D46D15F6B39400F4890A /* favorite@2x.png */; };
-		9027D47A15F734E900F4890A /* OLGhostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027D47915F7349600F4890A /* OLGhostAlertView.m */; };
 		902E5E4F15EBD5F10051C538 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902E5E4E15EBD5F10051C538 /* CoreData.framework */; };
 		905059CA15EBCFA500393577 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059C915EBCFA500393577 /* icon.png */; };
 		905059CD15EBCFAA00393577 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059CC15EBCFAA00393577 /* icon@2x.png */; };
@@ -31,13 +31,13 @@
 		908C92BB15EBCCAF00E3C718 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C92BA15EBCCAF00E3C718 /* ViewController.m */; };
 		908C92BE15EBCCAF00E3C718 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C92BC15EBCCAF00E3C718 /* ViewController.xib */; };
 		90B3A97B15F628CB0037629B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B3A97A15F628CB0037629B /* MessageUI.framework */; };
+		90F3795815FE29EF001A23C0 /* OLGhostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F944BB15FE2868007B0FF9 /* OLGhostAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		900226C015FE173C00FABCA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9027D46C15F6B39400F4890A /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
 		9027D46D15F6B39400F4890A /* favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite@2x.png"; sourceTree = "<group>"; };
-		9027D47815F7349600F4890A /* OLGhostAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OLGhostAlertView.h; sourceTree = "<group>"; };
-		9027D47915F7349600F4890A /* OLGhostAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OLGhostAlertView.m; sourceTree = "<group>"; };
 		902E5E4E15EBD5F10051C538 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		905059C915EBCFA500393577 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		905059CC15EBCFAA00393577 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -66,6 +66,8 @@
 		908C92BA15EBCCAF00E3C718 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		908C92BD15EBCCAF00E3C718 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		90B3A97A15F628CB0037629B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		90F944BA15FE2868007B0FF9 /* OLGhostAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OLGhostAlertView.h; sourceTree = "<group>"; };
+		90F944BB15FE2868007B0FF9 /* OLGhostAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OLGhostAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900226C115FE173C00FABCA3 /* QuartzCore.framework in Frameworks */,
 				90B3A97B15F628CB0037629B /* MessageUI.framework in Frameworks */,
 				902E5E4F15EBD5F10051C538 /* CoreData.framework in Frameworks */,
 				908C92A815EBCCAF00E3C718 /* UIKit.framework in Frameworks */,
@@ -104,8 +107,8 @@
 		905FCAED15EE25F600265D5D /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				9027D47815F7349600F4890A /* OLGhostAlertView.h */,
-				9027D47915F7349600F4890A /* OLGhostAlertView.m */,
+				90F944BA15FE2868007B0FF9 /* OLGhostAlertView.h */,
+				90F944BB15FE2868007B0FF9 /* OLGhostAlertView.m */,
 				905FCAEE15EE26DA00265D5D /* JSONKit.h */,
 				905FCAEF15EE26DA00265D5D /* JSONKit.m */,
 			);
@@ -134,6 +137,7 @@
 		908C92A615EBCCAF00E3C718 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				900226C015FE173C00FABCA3 /* QuartzCore.framework */,
 				90B3A97A15F628CB0037629B /* MessageUI.framework */,
 				902E5E4E15EBD5F10051C538 /* CoreData.framework */,
 				908C92A715EBCCAF00E3C718 /* UIKit.framework */,
@@ -244,10 +248,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				905FCAF815EE3AF900265D5D /* JSONKit.m in Sources */,
+				90F3795815FE29EF001A23C0 /* OLGhostAlertView.m in Sources */,
 				908C92B415EBCCAF00E3C718 /* main.m in Sources */,
 				908C92B815EBCCAF00E3C718 /* AppDelegate.m in Sources */,
 				908C92BB15EBCCAF00E3C718 /* ViewController.m in Sources */,
-				9027D47A15F734E900F4890A /* OLGhostAlertView.m in Sources */,
 				905059E315EBD0E900393577 /* NameYourBaby.xcdatamodeld in Sources */,
 				905059E915EBD20400393577 /* Babies.m in Sources */,
 			);
