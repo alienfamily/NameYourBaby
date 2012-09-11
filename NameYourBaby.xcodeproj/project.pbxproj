@@ -32,6 +32,8 @@
 		908C92BE15EBCCAF00E3C718 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C92BC15EBCCAF00E3C718 /* ViewController.xib */; };
 		90B3A97B15F628CB0037629B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B3A97A15F628CB0037629B /* MessageUI.framework */; };
 		90F3795815FE29EF001A23C0 /* OLGhostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F944BB15FE2868007B0FF9 /* OLGhostAlertView.m */; };
+		90F3797E15FE3F68001A23C0 /* FiltersBabies.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3797C15FE3F68001A23C0 /* FiltersBabies.m */; };
+		90F3797F15FE3F68001A23C0 /* FiltersBabies.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F3797D15FE3F68001A23C0 /* FiltersBabies.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,9 @@
 		908C92BA15EBCCAF00E3C718 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		908C92BD15EBCCAF00E3C718 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		90B3A97A15F628CB0037629B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		90F3797B15FE3F68001A23C0 /* FiltersBabies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersBabies.h; sourceTree = "<group>"; };
+		90F3797C15FE3F68001A23C0 /* FiltersBabies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersBabies.m; sourceTree = "<group>"; };
+		90F3797D15FE3F68001A23C0 /* FiltersBabies.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltersBabies.xib; sourceTree = "<group>"; };
 		90F944BA15FE2868007B0FF9 /* OLGhostAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OLGhostAlertView.h; sourceTree = "<group>"; };
 		90F944BB15FE2868007B0FF9 /* OLGhostAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OLGhostAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +160,9 @@
 				908C92B915EBCCAF00E3C718 /* ViewController.h */,
 				908C92BA15EBCCAF00E3C718 /* ViewController.m */,
 				908C92BC15EBCCAF00E3C718 /* ViewController.xib */,
+				90F3797B15FE3F68001A23C0 /* FiltersBabies.h */,
+				90F3797C15FE3F68001A23C0 /* FiltersBabies.m */,
+				90F3797D15FE3F68001A23C0 /* FiltersBabies.xib */,
 				905059E115EBD0E900393577 /* NameYourBaby.xcdatamodeld */,
 				905059E715EBD20400393577 /* Babies.h */,
 				905059E815EBD20400393577 /* Babies.m */,
@@ -237,6 +245,7 @@
 				905FCAFA15EE528A00265D5D /* DBName.json in Resources */,
 				9027D46E15F6B39400F4890A /* favorite.png in Resources */,
 				9027D46F15F6B39400F4890A /* favorite@2x.png in Resources */,
+				90F3797F15FE3F68001A23C0 /* FiltersBabies.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +263,7 @@
 				908C92BB15EBCCAF00E3C718 /* ViewController.m in Sources */,
 				905059E315EBD0E900393577 /* NameYourBaby.xcdatamodeld in Sources */,
 				905059E915EBD20400393577 /* Babies.m in Sources */,
+				90F3797E15FE3F68001A23C0 /* FiltersBabies.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

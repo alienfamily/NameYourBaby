@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     
-    [self setTitle:@"Babies"];
+    [self setTitle:@"Name your baby"];
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                 target:self
                                                                                  action:@selector(sendFavorites:)];
@@ -144,7 +144,7 @@
 /*      sendFavorites method create an e-mail                   */
 /*      with a list of babie's names                            */
 /****************************************************************/
--(void)sendFavorites:(id)sender {
+-(IBAction)sendFavorites:(id)sender {
     if ([MFMailComposeViewController canSendMail]) {
         NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:manageObjectContext];
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
@@ -178,6 +178,16 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
+}
+
+/****************************************************************/
+/*      showFavs method show a view                             */
+/*      populate only with favs                                 */
+/****************************************************************/
+-(IBAction)showFavs:(id)sender {
+    FiltersBabies *filters = [FiltersBabies new];
+    filters.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.navigationController presentModalViewController:filters animated:YES];
 }
 
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
@@ -251,9 +261,31 @@
         UIImageView *picto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]];
         [tableView cellForRowAtIndexPath:indexPath].accessoryView = picto;
         [babie setValue:[NSNumber numberWithBool:YES] forKey:@"fav"];
+        if (favExist == 0) {
+            favExist = 1;
+            UIBarButtonItem *showFavorites = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(showFavs:)];
+            self.navigationItem.leftBarButtonItem = showFavorites;
+        }
     } else {
         [tableView cellForRowAtIndexPath:indexPath].accessoryView = nil;
         [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+        
+        NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:manageObjectContext];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fav == 1"];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:babiesEntity];
+        [request setPredicate:predicate];
+        NSError *error;
+        NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
+        if (!fetchResults)
+            NSLog(@"A BIG ERROR OCCURS WHILE RETRIEVING FAVORITES: %@", error);
+        if ([fetchResults count] == 0) {
+            self.navigationItem.leftBarButtonItem = nil;
+            favExist = 0;
+        }
     }
     
     NSError *error;

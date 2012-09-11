@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import "Babies.h"
+#import "FiltersBabies.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate> {
     NSManagedObjectContext  *manageObjectContext;
@@ -18,6 +19,7 @@
     NSArray *sortedKeys;
     NSInteger btnBoys;
     NSInteger btnGirls;
+    NSInteger favExist;
     NSSortDescriptor *sortDescriptorForBabiesForSection;
     NSArray *descriptorsForBabiesForSection;
     NSArray *babiesForSection;
@@ -35,5 +37,6 @@
 -(void)fetchrecords;
 -(IBAction)genderSelected:(id)sender;
 -(IBAction)sendFavorites:(id)sender;
+-(IBAction)showFavs:(id)sender;
 
 @end

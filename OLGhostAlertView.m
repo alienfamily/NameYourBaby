@@ -43,7 +43,7 @@
     
     if (self) {
         self.layer.cornerRadius = 8.0f;
-        self.backgroundColor = [UIColor colorWithWhite:.0f alpha:.85];
+        self.backgroundColor = [UIColor colorWithWhite:.0f alpha:.90];
         self.alpha = 0;
         
         _title = [[UILabel alloc] initWithFrame:CGRectMake(HORIZONTAL_PADDING, VERTICAL_PADDING, 0, 0)];
