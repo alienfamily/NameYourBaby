@@ -14,29 +14,43 @@
 
 @implementation FiltersBabies
 
-@synthesize navBar, mutableBabies, table, managedObjectContext;
+@synthesize navBar, mutableBabies, table, managedObjectContext, access, sortedBabies, sortedKeys, babiesForSection, sortDescriptorForBabiesForSection, descriptorsForBabiesForSection;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+    }
+    return self;
+}
+
+-(id)initWithNibNameAndContext:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil context:(NSManagedObjectContext *)managedObjectContextReceived {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
         navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
         navBar.tintColor = [UIColor colorWithRed:148.f/255.f green:19.f/255.f blue:94.f/255.f alpha:1.f];
         UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Choosen name(s)"];
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]
-                                                                          style:UIBarButtonItemStyleBordered
-                                                                         target:self
-                                                                         action:@selector(backToMainView:)];
+                                                                       style:UIBarButtonItemStyleBordered
+                                                                      target:self
+                                                                      action:@selector(backToMainView:)];
         [item setLeftBarButtonItem:backButton];
         [navBar pushNavigationItem:item animated:NO];
+        self.managedObjectContext = managedObjectContextReceived;
+        access = [[DBAccess alloc] initWithContext:self.managedObjectContext];
+        sortDescriptorForBabiesForSection = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        descriptorsForBabiesForSection = [NSArray arrayWithObject:sortDescriptorForBabiesForSection];
         [self.view addSubview:navBar];
     }
+    
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.sortedBabies = [[NSMutableDictionary alloc] init];
     [self fetchFavsRecords];
 }
 
@@ -57,30 +71,43 @@
 }
 
 -(void)fetchFavsRecords {
-    NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:managedObjectContext];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fav == 1"];
-    NSFetchRequest *getFavs = [[NSFetchRequest alloc] init];
-    [getFavs setEntity:babiesEntity];
-    [getFavs setPredicate:predicate];
-    NSSortDescriptor *keyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"key" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:keyDescriptor];
-    [getFavs setSortDescriptors:sortDescriptors];
+    NSMutableArray *allFavorites = [[self.access getFavs] mutableCopy];
     
-    NSError *error;
-    NSMutableArray *fetchResults = [[managedObjectContext executeFetchRequest:getFavs error:&error] mutableCopy];
-    if (!fetchResults)
-        NSLog(@"A BIG ERROR OCCURS WHILE RETREIVING FAV FOR FILTERSBABIES");
-    [self setMutableBabies:fetchResults];
+    NSMutableArray *favsKeys = [[NSMutableArray alloc] init];
+    NSString *compareFirst = [NSString stringWithFormat:@""];
+    
+    for (Babies *bob in allFavorites) {
+        if (![bob.key isEqualToString:compareFirst])
+            [favsKeys addObject:bob.key];
+        compareFirst = bob.key;
+    }
+    
+    [self setMutableBabies:allFavorites];
+    
+    // Ordering the records properly
+    // Each letter is a key which have as value an array of Babies
+    // The result is stored in a property sortedBabies
+    NSMutableArray *arrayTmp = [[NSMutableArray alloc] init];
+    for (NSString *key in favsKeys) {
+        for (Babies *babie in mutableBabies) {
+            if ([key isEqualToString:babie.key])
+                [arrayTmp addObject:babie];
+        }
+        [self.sortedBabies setObject:[arrayTmp mutableCopy] forKey:key];
+        [arrayTmp removeAllObjects];
+    }
+    
+    sortedKeys = [NSArray arrayWithArray:[[self.sortedBabies allKeys] sortedArrayUsingSelector:@selector(compare:)]];
 }
 
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [[sortedBabies allKeys] count];;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [mutableBabies count];
+    return [[sortedBabies objectForKey:[sortedKeys objectAtIndex:section]] count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,21 +118,54 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     
-    Babies *babie = [mutableBabies objectAtIndex:[indexPath row]];
+    babiesForSection = [NSArray arrayWithArray:[self.sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]];
+    babiesForSection = [babiesForSection sortedArrayUsingDescriptors:descriptorsForBabiesForSection];
+    
+    Babies *babie = [babiesForSection objectAtIndex:[indexPath row]];
     
     cell.textLabel.text = babie.name;
+    
+    // Dealling with sex
+    if ([babie.type intValue] == 0) {
+        [cell.imageView setImage:[UIImage imageNamed:@"pictoFemme.png"]];
+    } else {
+        [cell.imageView setImage:[UIImage imageNamed:@"pictoHomme.png"]];
+    }
+    
+    // Dealling with favorites
+    if ([babie.fav intValue] == 1) {
+        UIImageView *picto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]];
+        cell.accessoryView = picto;
+    } else {
+        cell.accessoryView = nil;
+    }
     
     return cell;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Title";
+    return [sortedKeys objectAtIndex:section];
 }
 
 #pragma mark - Table view delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-        
+    NSManagedObject *babie = [[[NSArray arrayWithArray:[self.sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]] sortedArrayUsingDescriptors:descriptorsForBabiesForSection] objectAtIndex:[indexPath row]];
+    
+    if ([tableView cellForRowAtIndexPath:indexPath].accessoryView == nil) {
+        UIImageView *picto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]];
+        [tableView cellForRowAtIndexPath:indexPath].accessoryView = picto;
+        [babie setValue:[NSNumber numberWithBool:YES] forKey:@"fav"];
+    } else {
+        [tableView cellForRowAtIndexPath:indexPath].accessoryView = nil;
+        [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+    }
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error])
+        NSLog(@"A BIG ERROR OCCURS WHILE UPDATING FAV: %@", error);
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

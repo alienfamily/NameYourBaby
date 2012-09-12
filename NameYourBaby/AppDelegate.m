@@ -26,6 +26,10 @@
     
     if (self.managedObjectContext == nil)
         self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(contextChanged:)
+                                                 name:NSManagedObjectContextDidSaveNotification
+                                               object:nil];
     
     #if PREPROD
     
@@ -105,6 +109,19 @@
     
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)contextChanged:(NSNotification*)notification
+{
+    if ([notification object] == [self managedObjectContext])
+        return;
+    
+    if (![NSThread isMainThread]) {
+        [self performSelectorOnMainThread:@selector(contextChanged:) withObject:notification waitUntilDone:YES];
+        return;
+    }
+    
+    [[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

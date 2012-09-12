@@ -41,6 +41,15 @@
     // Release any retained subviews of the main view.
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    NSArray *allFavs = [self.access getFavs];
+    if ([allFavs count] == 0) {
+        self.navigationItem.leftBarButtonItem = nil;
+        favExist = 0;
+    }
+    [self.table reloadData];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -65,7 +74,7 @@
     NSMutableArray *allRecords = [self.access getAllRecords:predicate];
     [self setMutableBabies:allRecords];
     
-    // Ordering the records properly
+    // Ordering records properly
     // Each letter is a key which have as value an array of Babies
     // The result is stored in a property sortedBabies
     NSMutableArray *arrayTmp = [[NSMutableArray alloc] init];
@@ -79,6 +88,7 @@
     }
     
     sortedKeys = [NSArray arrayWithArray:[[self.sortedBabies allKeys] sortedArrayUsingSelector:@selector(compare:)]];
+    [self.table reloadData];
 }
 
 /****************************************************************/
@@ -151,7 +161,10 @@
 /*      populate only with favs                                 */
 /****************************************************************/
 -(IBAction)showFavs:(id)sender {
-    FiltersBabies *filters = [FiltersBabies new];
+    //FiltersBabies *filters = [FiltersBabies new];
+    FiltersBabies *filters = [[FiltersBabies alloc] initWithNibNameAndContext:@"FiltersBabies"
+                                                                       bundle:nil
+                                                                      context:manageObjectContext];
     filters.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self.navigationController presentModalViewController:filters animated:YES];
 }
