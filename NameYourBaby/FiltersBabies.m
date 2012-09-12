@@ -7,7 +7,6 @@
 //
 
 #import "FiltersBabies.h"
-#import "ViewController.h"
 
 @interface FiltersBabies ()
 
@@ -15,7 +14,7 @@
 
 @implementation FiltersBabies
 
-@synthesize navBar;
+@synthesize navBar, mutableBabies, table, managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self fetchFavsRecords];
 }
 
 - (void)viewDidUnload
@@ -57,6 +56,23 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+-(void)fetchFavsRecords {
+    NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fav == 1"];
+    NSFetchRequest *getFavs = [[NSFetchRequest alloc] init];
+    [getFavs setEntity:babiesEntity];
+    [getFavs setPredicate:predicate];
+    NSSortDescriptor *keyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"key" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:keyDescriptor];
+    [getFavs setSortDescriptors:sortDescriptors];
+    
+    NSError *error;
+    NSMutableArray *fetchResults = [[managedObjectContext executeFetchRequest:getFavs error:&error] mutableCopy];
+    if (!fetchResults)
+        NSLog(@"A BIG ERROR OCCURS WHILE RETREIVING FAV FOR FILTERSBABIES");
+    [self setMutableBabies:fetchResults];
+}
+
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -64,7 +80,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [mutableBabies count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,6 +90,10 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
+    
+    Babies *babie = [mutableBabies objectAtIndex:[indexPath row]];
+    
+    cell.textLabel.text = babie.name;
     
     return cell;
 }

@@ -16,7 +16,7 @@
 
 @implementation ViewController
 
-@synthesize manageObjectContext, table, mutableBabies, sortedBabies, sortedKeys, sortDescriptorForBabiesForSection, descriptorsForBabiesForSection, babiesForSection;
+@synthesize manageObjectContext, table, mutableBabies, sortedBabies, sortedKeys, sortDescriptorForBabiesForSection, descriptorsForBabiesForSection, babiesForSection, access;
 
 - (void)viewDidLoad
 {
@@ -28,6 +28,7 @@
                                                                                  action:@selector(sendFavorites:)];
     self.navigationItem.rightBarButtonItem = shareButton;
     
+    self.access = [[DBAccess alloc] initWithContext:manageObjectContext];
     self.sortedBabies = [[NSMutableDictionary alloc] init];
     sortDescriptorForBabiesForSection = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     descriptorsForBabiesForSection = [NSArray arrayWithObject:sortDescriptorForBabiesForSection];
@@ -51,10 +52,6 @@
 /*        from core data and stock them into a NSMutableArray   */
 /****************************************************************/
 -(void)fetchrecords {
-    NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:manageObjectContext];
-    
-    // Setting the main request to
-    // get every records from scratch
     NSPredicate *predicate;
     if (btnGirls == 1)
         predicate = [NSPredicate predicateWithFormat:@"type ==0"];
@@ -63,38 +60,16 @@
     if (btnBoys == 0 && btnGirls == 0)
         predicate = [NSPredicate predicateWithFormat:@"type == 0 OR type == 1"];
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:babiesEntity];
-    [request setPredicate:predicate];
-    NSSortDescriptor *keyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"key" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:keyDescriptor];
-    [request setSortDescriptors:sortDescriptors];
-    
-    // Setting and executing a second
-    // request to get the keys
-    NSFetchRequest *getKeys = [[NSFetchRequest alloc] init];
-    [getKeys setEntity:babiesEntity];
-    [getKeys setResultType:NSDictionaryResultType];
-    [getKeys setReturnsDistinctResults:YES];
-    [getKeys setPropertiesToFetch:[NSArray arrayWithObject:@"key"]];
-    NSError *err;
-    NSArray *keys = [manageObjectContext executeFetchRequest:getKeys error:&err];
-    if (!keys)
-        NSLog(@"A BIG ERROR OCCURS WHILE GETTING KEYS: %@", err);
-    
-    // Executing the first request
-    NSError *error;
-    NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
-    if (!fetchResults)
-        NSLog(@"A BIG ERROR OCCURS WHILE GETTING ALL RECORDS: %@", error);
-    
-    [self setMutableBabies:fetchResults];
+    NSArray *fetchKeys = [self.access getKeys];
+
+    NSMutableArray *allRecords = [self.access getAllRecords:predicate];
+    [self setMutableBabies:allRecords];
     
     // Ordering the records properly
     // Each letter is a key which have as value an array of Babies
     // The result is stored in a property sortedBabies
     NSMutableArray *arrayTmp = [[NSMutableArray alloc] init];
-    for (NSDictionary *key in keys) {
+    for (NSDictionary *key in fetchKeys) {
         for (Babies *babie in mutableBabies) {
             if ([[key objectForKey:@"key"] isEqualToString:babie.key])
                 [arrayTmp addObject:babie];
@@ -146,26 +121,17 @@
 /****************************************************************/
 -(IBAction)sendFavorites:(id)sender {
     if ([MFMailComposeViewController canSendMail]) {
-        NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:manageObjectContext];
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
         NSString *emailBody = [[NSString alloc] initWithFormat:@""];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fav == 1"];
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        [request setEntity:babiesEntity];
-        [request setPredicate:predicate];
-        NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-        NSArray *sortDescriptors = [NSArray arrayWithObject:nameDescriptor];
-        [request setSortDescriptors:sortDescriptors];
-        NSError *error;
-        NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
-        if (!fetchResults)
-            NSLog(@"A BIG ERROR OCCURS WHILE RETRIEVING FAVORITES: %@", error);
-        if ([fetchResults count] == 0) {
+                
+        NSArray *allFavs = [self.access getFavs];
+
+        if ([allFavs count] == 0) {
             OLGhostAlertView *ghost = [[OLGhostAlertView alloc] initWithTitle:@"No name selected" message:@"Select at least one name to share it :)" timeout:2 dismissible:YES];
             [ghost show];
         } else {
-            for (Babies *element in fetchResults)
+            for (Babies *element in allFavs)
                 emailBody = [emailBody stringByAppendingString:[[element name] stringByAppendingString:@"\n"]];
             [mailer setMessageBody:emailBody isHTML:NO];
             [self presentModalViewController:mailer animated:YES];
@@ -272,17 +238,9 @@
     } else {
         [tableView cellForRowAtIndexPath:indexPath].accessoryView = nil;
         [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
-        
-        NSEntityDescription *babiesEntity = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:manageObjectContext];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fav == 1"];
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        [request setEntity:babiesEntity];
-        [request setPredicate:predicate];
-        NSError *error;
-        NSMutableArray *fetchResults = [[manageObjectContext executeFetchRequest:request error:&error] mutableCopy];
-        if (!fetchResults)
-            NSLog(@"A BIG ERROR OCCURS WHILE RETRIEVING FAVORITES: %@", error);
-        if ([fetchResults count] == 0) {
+
+        NSArray *allFavs = [self.access getFavs];        
+        if ([allFavs count] == 0) {
             self.navigationItem.leftBarButtonItem = nil;
             favExist = 0;
         }

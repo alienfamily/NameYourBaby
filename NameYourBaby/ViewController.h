@@ -10,6 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import "Babies.h"
 #import "FiltersBabies.h"
+#import "DBAccess.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate> {
     NSManagedObjectContext  *manageObjectContext;
@@ -23,6 +24,7 @@
     NSSortDescriptor *sortDescriptorForBabiesForSection;
     NSArray *descriptorsForBabiesForSection;
     NSArray *babiesForSection;
+    DBAccess *access;
 }
 
 @property (nonatomic, strong) NSManagedObjectContext *manageObjectContext;
@@ -33,6 +35,7 @@
 @property (nonatomic, strong) NSSortDescriptor *sortDescriptorForBabiesForSection;
 @property (nonatomic, strong) NSArray *descriptorsForBabiesForSection;
 @property (nonatomic, strong) NSArray *babiesForSection;
+@property (nonatomic, strong) DBAccess *access;
 
 -(void)fetchrecords;
 -(IBAction)genderSelected:(id)sender;

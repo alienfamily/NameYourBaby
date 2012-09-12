@@ -20,6 +20,7 @@
 		905059DC15EBD01800393577 /* pictoHomme@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059D715EBD01800393577 /* pictoHomme@2x.png */; };
 		905059E315EBD0E900393577 /* NameYourBaby.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 905059E115EBD0E900393577 /* NameYourBaby.xcdatamodeld */; };
 		905059E915EBD20400393577 /* Babies.m in Sources */ = {isa = PBXBuildFile; fileRef = 905059E815EBD20400393577 /* Babies.m */; };
+		905763B116008657008D0875 /* DBAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 905763B016008657008D0875 /* DBAccess.m */; };
 		905FCAF815EE3AF900265D5D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 905FCAEF15EE26DA00265D5D /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		905FCAFA15EE528A00265D5D /* DBName.json in Resources */ = {isa = PBXBuildFile; fileRef = 905FCAF915EE528A00265D5D /* DBName.json */; };
 		908C92A815EBCCAF00E3C718 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92A715EBCCAF00E3C718 /* UIKit.framework */; };
@@ -51,6 +52,8 @@
 		905059E215EBD0E900393577 /* NameYourBaby.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NameYourBaby.xcdatamodel; sourceTree = "<group>"; };
 		905059E715EBD20400393577 /* Babies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Babies.h; sourceTree = "<group>"; };
 		905059E815EBD20400393577 /* Babies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Babies.m; sourceTree = "<group>"; };
+		905763AF16008657008D0875 /* DBAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBAccess.h; sourceTree = "<group>"; };
+		905763B016008657008D0875 /* DBAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBAccess.m; sourceTree = "<group>"; };
 		905FCAEE15EE26DA00265D5D /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		905FCAEF15EE26DA00265D5D /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		905FCAF915EE528A00265D5D /* DBName.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DBName.json; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				905059E115EBD0E900393577 /* NameYourBaby.xcdatamodeld */,
 				905059E715EBD20400393577 /* Babies.h */,
 				905059E815EBD20400393577 /* Babies.m */,
+				905763AF16008657008D0875 /* DBAccess.h */,
+				905763B016008657008D0875 /* DBAccess.m */,
 				908C92AE15EBCCAF00E3C718 /* Supporting Files */,
 			);
 			path = NameYourBaby;
@@ -264,6 +269,7 @@
 				905059E315EBD0E900393577 /* NameYourBaby.xcdatamodeld in Sources */,
 				905059E915EBD20400393577 /* Babies.m in Sources */,
 				90F3797E15FE3F68001A23C0 /* FiltersBabies.m in Sources */,
+				905763B116008657008D0875 /* DBAccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
