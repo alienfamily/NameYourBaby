@@ -24,6 +24,8 @@
     NSSortDescriptor *sortDescriptorForBabiesForSection;
     NSArray *descriptorsForBabiesForSection;
     NSArray *babiesForSection;
+    UINavigationBar *navBar;
+    UINavigationItem *item;
     DBAccess *access;
 }
 
@@ -31,10 +33,13 @@
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, strong) NSMutableArray *mutableBabies;
 @property (nonatomic, strong) NSMutableDictionary *sortedBabies;
+@property (nonatomic, strong) UINavigationItem *item;
 @property (nonatomic, strong) NSArray *sortedKeys;
 @property (nonatomic, strong) NSSortDescriptor *sortDescriptorForBabiesForSection;
 @property (nonatomic, strong) NSArray *descriptorsForBabiesForSection;
 @property (nonatomic, strong) NSArray *babiesForSection;
+@property (nonatomic, strong) UINavigationBar *navBar;
+@property (nonatomic, strong) UINavigationController *navController;
 @property (nonatomic, strong) DBAccess *access;
 
 -(void)fetchrecords;

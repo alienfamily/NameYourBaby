@@ -16,18 +16,22 @@
 
 @implementation ViewController
 
-@synthesize manageObjectContext, table, mutableBabies, sortedBabies, sortedKeys, sortDescriptorForBabiesForSection, descriptorsForBabiesForSection, babiesForSection, access;
+@synthesize manageObjectContext, table, mutableBabies, sortedBabies, sortedKeys, sortDescriptorForBabiesForSection, descriptorsForBabiesForSection, babiesForSection, access, navBar, item;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self setTitle:@"Name your baby"];
+    navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    navBar.tintColor = [UIColor colorWithRed:148.f/255.f green:19.f/255.f blue:94.f/255.f alpha:1.f];
+    item = [[UINavigationItem alloc] initWithTitle:@"Name your baby"];
+    [navBar pushNavigationItem:item animated:NO];
+    
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                 target:self
                                                                                  action:@selector(sendFavorites:)];
-    self.navigationItem.rightBarButtonItem = shareButton;
-    
+    [item setRightBarButtonItem:shareButton];
+    [self.view addSubview:navBar];
     self.access = [[DBAccess alloc] initWithContext:manageObjectContext];
     self.sortedBabies = [[NSMutableDictionary alloc] init];
     sortDescriptorForBabiesForSection = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
@@ -166,7 +170,7 @@
                                                                        bundle:nil
                                                                       context:manageObjectContext];
     filters.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self.navigationController presentModalViewController:filters animated:YES];
+    [self presentModalViewController:filters animated:YES];
 }
 
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
@@ -246,7 +250,7 @@
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self
                                                                              action:@selector(showFavs:)];
-            self.navigationItem.leftBarButtonItem = showFavorites;
+            [item setLeftBarButtonItem:showFavorites];
         }
     } else {
         [tableView cellForRowAtIndexPath:indexPath].accessoryView = nil;
@@ -254,7 +258,7 @@
 
         NSArray *allFavs = [self.access getFavs];        
         if ([allFavs count] == 0) {
-            self.navigationItem.leftBarButtonItem = nil;
+            [item setLeftBarButtonItem:nil];
             favExist = 0;
         }
     }

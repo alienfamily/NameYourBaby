@@ -4,7 +4,6 @@
 			"Alexandre",
             "Abel",
             "Alex",
-            "Ambroise",
             "Afif",
             "Amar",
             "Abdel",
@@ -18,7 +17,6 @@
 			"André",
 			"Adolphe",
 			"Albert",
-			"Abel",
 			"Adam",
 			"Armand",
 			"Anselme",
@@ -40,7 +38,6 @@
 			"Aurèle",
             "Aubert",
             "Aziz",
-			"Appolinaire",
 			"Alphonse"
 		],
 		"Girls": [
@@ -60,7 +57,6 @@
             "Ania",
             "Abelle",
 			"Aurore",
-			"Alexandrie",
 			"Alexandra",
             "Amelle",
 			"Avril",
@@ -97,8 +93,7 @@
 			"Adelline",
 			"Adèle",
 			"Anaïs",
-			"Adhara",
-			"Amandine"
+			"Adhara"
 		]
 	},
 	"B": {
@@ -171,6 +166,7 @@
             "Chloé",
             "Charlotte",
 			"Claire",
+            "Cassandre",
             "Clara",
 			"Clarice",
 			"Claudine",
@@ -212,15 +208,20 @@
 			"Emmanuel",
 			"Esmé",
 			"Etienne",
+            "Erwan",
 			"Eugène",
+            "Eric",
 			"Emric",
 			"Edmond"
 		],
 		"Girls": [
 			"Edwige",
-			"Aulalie",
 			"Emma",
 			"Elisabeth",
+            "Eléonore",
+            "Eva",
+            "Eve",
+            "Evelyne",
 			"Esther",
 			"Elise",
 			"Emmanuelle",
@@ -243,6 +244,9 @@
 			"Franck",
 			"François",
 			"Frédéric",
+            "Francis",
+            "François-Xavier",
+            "Florin",
 			"Fabien"
 		],
 		"Girls": [
@@ -252,8 +256,13 @@
 			"Florence",
 			"Florette",
 			"France",
+            "Faustine",
+            "Fanny",
+            "Fleure",
+            "Flavie",
 			"Fleur",
 			"Fabiola",
+            "Fatima",
 			"Francine"
 		]
 	},
@@ -272,6 +281,7 @@
 			"Ghislain",
 			"Gilles",
 			"Grégoire",
+            "Guénael",
 			"Guillaume",
 			"Gustave",
 			"Guy",
@@ -279,6 +289,8 @@
 		],
 		"Girls": [
 			"Ghislaine",
+            "Gaëlle",
+            "Geneviève",
 			"Giselle",
 			"Gwenaelle",
 			"Gabrielle",
@@ -290,6 +302,9 @@
 			"Hugues",
 			"Henri",
 			"Hilaire",
+            "Herbert",
+            "Horace",
+            "Hugo",
 			"Honoré",
 			"Hubert",
 			"Hector"
@@ -306,10 +321,14 @@
 	"I": {
 		"Boys": [
 			"Ignace",
+            "Idriss",
+            "Isaac",
 			"Isidore"
 		],
 		"Girls": [
 			"Inès",
+            "Iphigénie",
+            "Ivone",
 			"Isabelle",
 			"Irène"
 		]
@@ -318,6 +337,19 @@
 		"Boys": [
 			"Jean",
 			"Jean-Baptiste",
+            "Jean-Pierre",
+            "Jean-Christophe",
+            "Jean-François",
+            "Jean-Jacques",
+            "Jean-Claude",
+            "Jean-Louis",
+            "Jean-Marc",
+            "Jean-Michel",
+            "Jean-Paul",
+            "Jean-Marie",
+            "Jean-Luc",
+            "Jamel",
+            "Jacobe",
 			"Jeanot",
 			"Jérémi",
 			"Joachim",
@@ -328,6 +360,7 @@
 			"Julien",
 			"Juste",
 			"Justin",
+            "Jossua",
 			"Jacques"
 		],
 		"Girls": [
@@ -339,6 +372,9 @@
 			"Judith",
 			"Joséphine",
 			"Julie",
+            "Jade",
+            "Jésabel",
+            "Johanne",
 			"Juliette",
 			"Jacqueline",
 			"Jacinthe"
@@ -347,10 +383,13 @@
 	"K": {
 		"Boys": [
 			"Kalis",
+            "Kevin",
+            "Khaled",
 			"Karime"
 		],
 		"Girls": [
 			"Kasia",
+            "Kenza",
 			"Kaelys"
 		]
 	},
@@ -361,6 +400,7 @@
 			"Léopold",
 			"Lionel",
 			"Loïc",
+            "Ludovic",
 			"Louis",
 			"Luc",
 			"Lucas",
@@ -373,8 +413,12 @@
 			"Louise",
 			"Léonie",
 			"Luce",
+            "Loïs",
+            "Lise",
+            "Ludivine",
 			"Lucette",
 			"Laure",
+            "Laurie",
 			"Laurette",
 			"Léa",
 			"Laura",
@@ -388,9 +432,12 @@
 			"Marcel",
 			"Marcellin",
 			"Marius",
+            "Matisse",
 			"Martin",
+            "Mickael",
 			"Mathieu",
 			"Maurice",
+            "Mohamed",
 			"Maxime",
 			"Maximilien",
 			"Michel",
@@ -400,6 +447,19 @@
 			"Michelle",
 			"Mireille",
 			"Muriel",
+            "Maëlle",
+            "Maguie",
+            "Margaud",
+            "Marie-Paule",
+            "Marie-Françoise",
+            "Marie-Hélène",
+            "Marie-Eva",
+            "Marie-Claire",
+            "Marie-charlotte",
+            "Marie-Christine",
+            "Marie-Louise",
+            "Marie-Sophie",
+            "Marie-Amélie",
 			"Monique",
 			"Morgane",
 			"Myriam",
@@ -425,13 +485,19 @@
 	"N": {
 		"Boys": [
 			"Nathan",
+            "Nathaniel",
+            "Nelson",
 			"Noé",
 			"Norbert",
 			"Nicolas"
 		],
 		"Girls": [
 			"Nicolette",
+            "Nadège",
+            "Naomie",
+            "Nicole",
 			"Ninon",
+            "Nolène",
 			"Nadia",
 			"Nadine",
 			"Nathalie",
@@ -440,10 +506,14 @@
 	},
 	"O": {
 		"Boys": [
-			"Olivier"
+			"Olivier",
+            "Octave",
+            "Olaf",
+            "Orlando"
 		],
 		"Girls": [
 			"Odette",
+            "Ophélie",
 			"Olivia",
 			"Olive",
 			"Odile"
@@ -459,7 +529,6 @@
 		],
 		"Girls": [
 			"Paulette",
-			"Pauline",
 			"Pénélope",
 			"Pauline",
 			"Pascaline",
@@ -485,12 +554,12 @@
 			"René",
 			"Robert",
 			"Rodolphe",
-			"Romain",
-			"Rémi"
+			"Romain"
 		],
 		"Girls": [
 			"Régine",
 			"Roseline",
+            "Rosaline",
 			"Roxane",
 			"Renée",
 			"Rachel",
@@ -500,6 +569,7 @@
 	"S": {
 		"Boys": [
 			"Salomon",
+            "Saïd",
 			"Sébastien",
 			"Serges",
 			"Simon",
@@ -511,13 +581,13 @@
 			"Solange",
 			"Sidonie",
 			"Simone",
+            "Sabrina",
 			"Sophie",
 			"Stéphanie",
 			"Suzanne",
 			"Sylvaine",
 			"Sylvie",
 			"Suzette",
-			"Suzanne",
 			"Sabine",
 			"Sarah",
 			"Salomé",
@@ -532,23 +602,52 @@
 			"Théodore",
 			"Thomas",
 			"Thibault",
+            "Thimothé",
 			"Théophile",
 			"Tristan",
 			"Timothé"
 		],
 		"Girls": [
-			"Thérèse"
+			"Thérèse",
+            "Thiffany",
+            "Tess"
 		]
 	},
+    "U": {
+        "Boys": [
+            "Ulysse",
+            "Umbert"
+        ],
+        "Girls": [
+            "Ursilla"
+        ]
+    },
 	"V": {
 		"Boys": [
 			"Vincent",
+            "Valentin",
+            "Virgil",
+            "Vianney",
 			"Victor"
 		],
 		"Girls": [
-			"Véronique"
+			"Véronique",
+            "Victoria",
+            "Vivianne",
+            "Vanessa",
+            "Valérie"
 		]
 	},
+    "W": {
+      "Boys": [
+            "Wilfried",
+            "Willem",
+            "William"
+        ],
+        "Girls": [
+            "Wafa"
+        ]
+    },
 	"X": {
 		"Boys": [
 			"Xavier"
@@ -563,6 +662,8 @@
 			"Yvon",
 			"Yves",
 			"Yannick",
+            "Yoann",
+            "Youssef",
 			"Yann"
 		],
 		"Girls": [
@@ -578,6 +679,7 @@
 		],
 		"Girls": [
 			"Zoé",
+            "Zora",
 			"Zahia"
 		]
 	}

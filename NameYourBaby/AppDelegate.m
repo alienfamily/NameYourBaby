@@ -20,10 +20,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    navController = [[UINavigationController alloc] init];
-    navController.navigationBar.tintColor = [UIColor colorWithRed:148.f/255.f green:19.f/255.f blue:94.f/255.f alpha:1.f];
-    [self.window addSubview:navController.view];
-    
+    //navController = [[UINavigationController alloc] init];
+    //[self.window addSubview:navController.view];
+
     if (self.managedObjectContext == nil)
         self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -104,9 +103,8 @@
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     self.viewController.manageObjectContext = [self managedObjectContext];
-    
-    [navController pushViewController:self.viewController animated:NO];
-    
+//    [navController setNavigationBarHidden:YES];
+//    [navController pushViewController:self.viewController animated:NO];
     [self.window makeKeyAndVisible];
     return YES;
 }
