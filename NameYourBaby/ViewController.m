@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    navBar.tintColor = [UIColor colorWithRed:148.f/255.f green:19.f/255.f blue:94.f/255.f alpha:1.f];
+    navBar.tintColor = [UIColor colorWithRed:156.f/255.f green:208.f/255.f blue:57.f/255.f alpha:1.f];
     item = [[UINavigationItem alloc] initWithTitle:@"Name your baby"];
     [navBar pushNavigationItem:item animated:NO];
     
@@ -48,7 +48,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     NSArray *allFavs = [self.access getFavs];
     if ([allFavs count] == 0) {
-        self.navigationItem.leftBarButtonItem = nil;
+        [item setLeftBarButtonItem:nil];;
         favExist = 0;
     }
     [self.table reloadData];
@@ -215,9 +215,9 @@
     
     // Dealling with sex
     if ([babie.type intValue] == 0) {
-        [cell.imageView setImage:[UIImage imageNamed:@"pictoFemme.png"]];
+        [cell.imageView setImage:[UIImage imageNamed:@"icogirl.png"]];
     } else {
-        [cell.imageView setImage:[UIImage imageNamed:@"pictoHomme.png"]];
+        [cell.imageView setImage:[UIImage imageNamed:@"icoboy.png"]];
     }
     
     // Dealling with favorites

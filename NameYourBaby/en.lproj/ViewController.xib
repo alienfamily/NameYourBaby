@@ -46,20 +46,20 @@
 						<reference key="NSNextKeyView" ref="898044653"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MSAwIDAuNTAxOTYwODE0IDAuNDcAA</bytes>
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC40NDcwNTg4MjM1IDAuNjUwOTgwMzkyMiAwLjAxMTc2NDcwNTg4AA</bytes>
 						</object>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">navbar@2x.png</string>
+							<string key="NSResourceName">bottom3.png</string>
 						</object>
 					</object>
 					<object class="IBUIButton" id="898044653">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">269</int>
-						<string key="NSFrame">{{30, 492}, {38, 37}}</string>
+						<string key="NSFrame">{{20, 478}, {70, 70}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="933028599"/>
@@ -69,10 +69,6 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Girls</string>
-						<object class="NSColor" key="IBUIHighlightedTitleColor" id="696830360">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
-						</object>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NiAwAA</bytes>
@@ -85,8 +81,10 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">pictoFemme@2x.png</string>
 						</object>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="31693878">
-							<int key="type">2</int>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<string key="name">Helvetica-Bold</string>
+							<string key="family">Helvetica</string>
+							<int key="traits">2</int>
 							<double key="pointSize">15</double>
 						</object>
 						<object class="NSFont" key="IBUIFont" id="707853670">
@@ -98,16 +96,20 @@
 					<object class="IBUIButton" id="933028599">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">269</int>
-						<string key="NSFrame">{{247, 492}, {38, 37}}</string>
+						<string key="NSFrame">{{230, 478}, {70, 70}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Boys</string>
-						<reference key="IBUIHighlightedTitleColor" ref="696830360"/>
+						<object class="NSColor" key="IBUIHighlightedTitleColor" id="696830360">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MQA</bytes>
+						</object>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NiAwAA</bytes>
@@ -117,7 +119,10 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">pictoHomme@2x.png</string>
 						</object>
-						<reference key="IBUIFontDescription" ref="31693878"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<int key="type">2</int>
+							<double key="pointSize">15</double>
+						</object>
 						<reference key="IBUIFont" ref="707853670"/>
 					</object>
 					<object class="IBUITableView" id="93888326">
@@ -252,8 +257,8 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="93888326"/>
 							<reference ref="806157298"/>
-							<reference ref="898044653"/>
 							<reference ref="933028599"/>
+							<reference ref="898044653"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -289,6 +294,8 @@
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="2" key="10.IBUIButtonInspectorSelectedEdgeInsetMetadataKey"/>
+				<real value="0.0" key="10.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -298,7 +305,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">33</int>
+			<int key="maxID">39</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -351,9 +358,9 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="navbar@2x.png">{640, 88}</string>
-			<string key="pictoFemme@2x.png">{50, 50}</string>
-			<string key="pictoHomme@2x.png">{50, 50}</string>
+			<string key="bottom3.png">{640, 140}</string>
+			<string key="pictoFemme@2x.png">{140, 140}</string>
+			<string key="pictoHomme@2x.png">{140, 140}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1926</string>
 	</data>
