@@ -37,6 +37,8 @@
 		908C92B815EBCCAF00E3C718 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C92B715EBCCAF00E3C718 /* AppDelegate.m */; };
 		908C92BB15EBCCAF00E3C718 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C92BA15EBCCAF00E3C718 /* ViewController.m */; };
 		908C92BE15EBCCAF00E3C718 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C92BC15EBCCAF00E3C718 /* ViewController.xib */; };
+		90A9C6611613114C00384DEF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A9C6601613114C00384DEF /* Icon.png */; };
+		90A9C6641613115800384DEF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A9C6631613115800384DEF /* Icon@2x.png */; };
 		90B3A97B15F628CB0037629B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B3A97A15F628CB0037629B /* MessageUI.framework */; };
 		90F3795815FE29EF001A23C0 /* OLGhostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F944BB15FE2868007B0FF9 /* OLGhostAlertView.m */; };
 		90F3797E15FE3F68001A23C0 /* FiltersBabies.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3797C15FE3F68001A23C0 /* FiltersBabies.m */; };
@@ -82,6 +84,8 @@
 		908C92B915EBCCAF00E3C718 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		908C92BA15EBCCAF00E3C718 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		908C92BD15EBCCAF00E3C718 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		90A9C6601613114C00384DEF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		90A9C6631613115800384DEF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		90B3A97A15F628CB0037629B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		90F3797B15FE3F68001A23C0 /* FiltersBabies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersBabies.h; sourceTree = "<group>"; };
 		90F3797C15FE3F68001A23C0 /* FiltersBabies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersBabies.m; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 		908C929815EBCCAF00E3C718 = {
 			isa = PBXGroup;
 			children = (
+				90A9C6631613115800384DEF /* Icon@2x.png */,
+				90A9C6601613114C00384DEF /* Icon.png */,
 				903EB8CE1601EEFD00DD4303 /* Default-568h@2x.png */,
 				905FCAED15EE25F600265D5D /* Externals */,
 				905059CE15EBCFEC00393577 /* Ressources */,
@@ -275,6 +281,8 @@
 				901EE4661608D4CF007AD3C5 /* icogirl.png in Resources */,
 				901EE4671608D4CF007AD3C5 /* icoboy@2x.png in Resources */,
 				901EE4681608D4CF007AD3C5 /* icogirl@2x.png in Resources */,
+				90A9C6611613114C00384DEF /* Icon.png in Resources */,
+				90A9C6641613115800384DEF /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
