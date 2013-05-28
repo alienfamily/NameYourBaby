@@ -30,7 +30,7 @@
     if (self) {
         navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
         navBar.tintColor = [UIColor colorWithRed:156.f/255.f green:208.f/255.f blue:57.f/255.f  alpha:1.f];
-        UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Favorite(s) name(s)"];
+        UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Prénom(s) Favori(s)"];
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]
                                                                        style:UIBarButtonItemStyleBordered
                                                                       target:self

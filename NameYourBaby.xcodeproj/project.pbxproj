@@ -21,8 +21,6 @@
 		9027D46F15F6B39400F4890A /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027D46D15F6B39400F4890A /* favorite@2x.png */; };
 		902E5E4F15EBD5F10051C538 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902E5E4E15EBD5F10051C538 /* CoreData.framework */; };
 		903EB8CF1601EEFD00DD4303 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 903EB8CE1601EEFD00DD4303 /* Default-568h@2x.png */; };
-		905059CA15EBCFA500393577 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059C915EBCFA500393577 /* icon.png */; };
-		905059CD15EBCFAA00393577 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059CC15EBCFAA00393577 /* icon@2x.png */; };
 		905059D815EBD01800393577 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059D315EBD01800393577 /* navbar@2x.png */; };
 		905059E315EBD0E900393577 /* NameYourBaby.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 905059E115EBD0E900393577 /* NameYourBaby.xcdatamodeld */; };
 		905059E915EBD20400393577 /* Babies.m in Sources */ = {isa = PBXBuildFile; fileRef = 905059E815EBD20400393577 /* Babies.m */; };
@@ -37,9 +35,9 @@
 		908C92B815EBCCAF00E3C718 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C92B715EBCCAF00E3C718 /* AppDelegate.m */; };
 		908C92BB15EBCCAF00E3C718 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C92BA15EBCCAF00E3C718 /* ViewController.m */; };
 		908C92BE15EBCCAF00E3C718 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C92BC15EBCCAF00E3C718 /* ViewController.xib */; };
-		90A9C6611613114C00384DEF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A9C6601613114C00384DEF /* Icon.png */; };
-		90A9C6641613115800384DEF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A9C6631613115800384DEF /* Icon@2x.png */; };
 		90B3A97B15F628CB0037629B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B3A97A15F628CB0037629B /* MessageUI.framework */; };
+		90B428421754ECE10080C08E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B428411754ECE10080C08E /* Icon.png */; };
+		90B428441754ECE60080C08E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B428431754ECE60080C08E /* Icon@2x.png */; };
 		90F3795815FE29EF001A23C0 /* OLGhostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F944BB15FE2868007B0FF9 /* OLGhostAlertView.m */; };
 		90F3797E15FE3F68001A23C0 /* FiltersBabies.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3797C15FE3F68001A23C0 /* FiltersBabies.m */; };
 		90F3797F15FE3F68001A23C0 /* FiltersBabies.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F3797D15FE3F68001A23C0 /* FiltersBabies.xib */; };
@@ -60,8 +58,6 @@
 		9027D46D15F6B39400F4890A /* favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite@2x.png"; sourceTree = "<group>"; };
 		902E5E4E15EBD5F10051C538 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		903EB8CE1601EEFD00DD4303 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		905059C915EBCFA500393577 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		905059CC15EBCFAA00393577 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		905059D315EBD01800393577 /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar@2x.png"; sourceTree = "<group>"; };
 		905059E215EBD0E900393577 /* NameYourBaby.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NameYourBaby.xcdatamodel; sourceTree = "<group>"; };
 		905059E715EBD20400393577 /* Babies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Babies.h; sourceTree = "<group>"; };
@@ -84,9 +80,9 @@
 		908C92B915EBCCAF00E3C718 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		908C92BA15EBCCAF00E3C718 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		908C92BD15EBCCAF00E3C718 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		90A9C6601613114C00384DEF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		90A9C6631613115800384DEF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		90B3A97A15F628CB0037629B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		90B428411754ECE10080C08E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		90B428431754ECE60080C08E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		90F3797B15FE3F68001A23C0 /* FiltersBabies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersBabies.h; sourceTree = "<group>"; };
 		90F3797C15FE3F68001A23C0 /* FiltersBabies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersBabies.m; sourceTree = "<group>"; };
 		90F3797D15FE3F68001A23C0 /* FiltersBabies.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltersBabies.xib; sourceTree = "<group>"; };
@@ -121,8 +117,6 @@
 				901EE4621608D4CE007AD3C5 /* icogirl.png */,
 				901EE4631608D4CF007AD3C5 /* icoboy@2x.png */,
 				901EE4641608D4CF007AD3C5 /* icogirl@2x.png */,
-				905059CC15EBCFAA00393577 /* icon@2x.png */,
-				905059C915EBCFA500393577 /* icon.png */,
 				905059D315EBD01800393577 /* navbar@2x.png */,
 				901EE4551608D365007AD3C5 /* pictoHomme.png */,
 				901EE4561608D365007AD3C5 /* pictoFemme.png */,
@@ -147,8 +141,8 @@
 		908C929815EBCCAF00E3C718 = {
 			isa = PBXGroup;
 			children = (
-				90A9C6631613115800384DEF /* Icon@2x.png */,
-				90A9C6601613114C00384DEF /* Icon.png */,
+				90B428431754ECE60080C08E /* Icon@2x.png */,
+				90B428411754ECE10080C08E /* Icon.png */,
 				903EB8CE1601EEFD00DD4303 /* Default-568h@2x.png */,
 				905FCAED15EE25F600265D5D /* Externals */,
 				905059CE15EBCFEC00393577 /* Ressources */,
@@ -264,8 +258,6 @@
 			files = (
 				908C92B215EBCCAF00E3C718 /* InfoPlist.strings in Resources */,
 				908C92BE15EBCCAF00E3C718 /* ViewController.xib in Resources */,
-				905059CA15EBCFA500393577 /* icon.png in Resources */,
-				905059CD15EBCFAA00393577 /* icon@2x.png in Resources */,
 				905059D815EBD01800393577 /* navbar@2x.png in Resources */,
 				905FCAFA15EE528A00265D5D /* DBName.json in Resources */,
 				9027D46E15F6B39400F4890A /* favorite.png in Resources */,
@@ -281,8 +273,8 @@
 				901EE4661608D4CF007AD3C5 /* icogirl.png in Resources */,
 				901EE4671608D4CF007AD3C5 /* icoboy@2x.png in Resources */,
 				901EE4681608D4CF007AD3C5 /* icogirl@2x.png in Resources */,
-				90A9C6611613114C00384DEF /* Icon.png in Resources */,
-				90A9C6641613115800384DEF /* Icon@2x.png in Resources */,
+				90B428421754ECE10080C08E /* Icon.png in Resources */,
+				90B428441754ECE60080C08E /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +327,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Remy ALEXANDRE (37ZG2249EW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Remy ALEXANDRE (37ZG2249EW)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -350,6 +343,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "F547DAAF-5D52-48D1-94F5-6C3C5A70AE77";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F547DAAF-5D52-48D1-94F5-6C3C5A70AE77";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -362,7 +357,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Remy ALEXANDRE (7252L78MQ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Remy ALEXANDRE (7252L78MQ3)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -371,6 +367,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "9D21A861-EEB2-40C7-90A2-153D1B610E40";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9D21A861-EEB2-40C7-90A2-153D1B610E40";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

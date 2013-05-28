@@ -24,7 +24,7 @@
     
     navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     navBar.tintColor = [UIColor colorWithRed:156.f/255.f green:208.f/255.f blue:57.f/255.f alpha:1.f];
-    item = [[UINavigationItem alloc] initWithTitle:@"Name Your Baby"];
+    item = [[UINavigationItem alloc] initWithTitle:@"Prénom de bébé"];
     [navBar pushNavigationItem:item animated:NO];
     
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
@@ -149,7 +149,7 @@
         NSArray *allFavs = [self.access getFavs];
         
         if ([allFavs count] == 0) {
-            OLGhostAlertView *ghost = [[OLGhostAlertView alloc] initWithTitle:@"No name selected" message:@"Select at least one name to share it :)" timeout:2 dismissible:YES];
+            OLGhostAlertView *ghost = [[OLGhostAlertView alloc] initWithTitle:@"Aucun prénom de choisi" message:@"Choisissez au moins un prénom pour le partager :)" timeout:2 dismissible:YES];
             [ghost show];
         } else {
             for (Babies *element in allFavs)
@@ -158,10 +158,10 @@
             [self presentModalViewController:mailer animated:YES];
         }
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No e-mail account found"
-                                                        message:@"You must configure an e-mail account to use this feature."
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aucun compte e-mail"
+                                                        message:@"Vous devez configurer un compte e-mail pour utiliser cette fonctionnalité."
                                                        delegate:nil
-                                              cancelButtonTitle:@"OK"
+                                              cancelButtonTitle:@"Fermer"
                                               otherButtonTitles:nil];
         [alert show];
     }
