@@ -379,11 +379,15 @@
 		908C92C215EBCCAF00E3C718 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Remy ALEXANDRE (37ZG2249EW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Remy ALEXANDRE (37ZG2249EW)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NameYourBaby/NameYourBaby-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=0";
 				INFOPLIST_FILE = "NameYourBaby/NameYourBaby-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F547DAAF-5D52-48D1-94F5-6C3C5A70AE77";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F547DAAF-5D52-48D1-94F5-6C3C5A70AE77";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -391,10 +395,14 @@
 		908C92C315EBCCAF00E3C718 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Remy ALEXANDRE (7252L78MQ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Remy ALEXANDRE (7252L78MQ3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NameYourBaby/NameYourBaby-Prefix.pch";
 				INFOPLIST_FILE = "NameYourBaby/NameYourBaby-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9D21A861-EEB2-40C7-90A2-153D1B610E40";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9D21A861-EEB2-40C7-90A2-153D1B610E40";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

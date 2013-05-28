@@ -24,13 +24,14 @@
     
     navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     navBar.tintColor = [UIColor colorWithRed:156.f/255.f green:208.f/255.f blue:57.f/255.f alpha:1.f];
-    item = [[UINavigationItem alloc] initWithTitle:@"Name your baby"];
+    item = [[UINavigationItem alloc] initWithTitle:@"Name Your Baby"];
     [navBar pushNavigationItem:item animated:NO];
     
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                                                                target:self
+                                                                                 target:self
                                                                                  action:@selector(sendFavorites:)];
     [item setRightBarButtonItem:shareButton];
+    
     [self.view addSubview:navBar];
     self.access = [[DBAccess alloc] initWithContext:manageObjectContext];
     self.sortedBabies = [[NSMutableDictionary alloc] init];
@@ -48,8 +49,14 @@
 -(void)viewWillAppear:(BOOL)animated {
     NSArray *allFavs = [self.access getFavs];
     if ([allFavs count] == 0) {
-        [item setLeftBarButtonItem:nil];;
+        [item setLeftBarButtonItem:nil];
         favExist = 0;
+    } else {
+        UIBarButtonItem *showFavorites = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"favorite.png"]
+                                                                          style:UIBarButtonItemStyleBordered
+                                                                         target:self
+                                                                         action:@selector(showFavs:)];
+        [item setLeftBarButtonItem:showFavorites];
     }
     [self.table reloadData];
 }
@@ -74,7 +81,7 @@
         predicate = [NSPredicate predicateWithFormat:@"type == 0 OR type == 1"];
     
     NSArray *fetchKeys = [self.access getKeys];
-
+    
     NSMutableArray *allRecords = [self.access getAllRecords:predicate];
     [self setMutableBabies:allRecords];
     
@@ -138,9 +145,9 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
         NSString *emailBody = [[NSString alloc] initWithFormat:@""];
-                
+        
         NSArray *allFavs = [self.access getFavs];
-
+        
         if ([allFavs count] == 0) {
             OLGhostAlertView *ghost = [[OLGhostAlertView alloc] initWithTitle:@"No name selected" message:@"Select at least one name to share it :)" timeout:2 dismissible:YES];
             [ghost show];
@@ -151,8 +158,8 @@
             [self presentModalViewController:mailer animated:YES];
         }
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
-                                                        message:@"no mail available"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No e-mail account found"
+                                                        message:@"You must configure an e-mail account to use this feature."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -210,7 +217,7 @@
     babiesForSection = [NSArray arrayWithArray:[self.sortedBabies objectForKey:[sortedKeys objectAtIndex:[indexPath section]]]];
     babiesForSection = [babiesForSection sortedArrayUsingDescriptors:descriptorsForBabiesForSection];
     Babies *babie = [babiesForSection objectAtIndex:[indexPath row]];
-
+    
     [cell.textLabel setText:[babie name]];
     
     // Dealling with sex
@@ -255,8 +262,8 @@
     } else {
         [tableView cellForRowAtIndexPath:indexPath].accessoryView = nil;
         [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
-
-        NSArray *allFavs = [self.access getFavs];        
+        
+        NSArray *allFavs = [self.access getFavs];
         if ([allFavs count] == 0) {
             [item setLeftBarButtonItem:nil];
             favExist = 0;

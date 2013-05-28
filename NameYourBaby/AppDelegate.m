@@ -27,7 +27,7 @@
                                                  name:NSManagedObjectContextDidSaveNotification
                                                object:nil];
     
-    #if PREPROD
+#if PREPROD
     
     /************************************************************/
     /*          START - Cleaning the DB from all datas          */
@@ -53,49 +53,62 @@
     /*          END - Cleaning the DB from all datas            */
     /************************************************************/
     
+#endif
+    
     /************************************************************/
     /*                  START - Initializing DB                 */
     /*      Here we parse the json file "DBName.json"           */
     /*      and store datas in core data                        */
     /************************************************************/
     
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *plistPath = [bundle pathForResource:@"DBName" ofType:@"json"];
-    NSData *jsonData = [NSData dataWithContentsOfFile:plistPath];
-    NSDictionary *dicoFromJson = [[NSDictionary alloc] init];
-    dicoFromJson = [jsonData objectFromJSONData];
     
-    NSArray *keyLetters = [NSArray arrayWithArray:[dicoFromJson allKeys]];
-    keyLetters = [keyLetters sortedArrayUsingSelector:@selector(compare:)];
+    NSFetchRequest *requestTest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *toTest = [NSEntityDescription entityForName:@"Babies" inManagedObjectContext:self.managedObjectContext];
+    [requestTest setEntity:toTest];
+    [requestTest setIncludesPropertyValues:NO];
+    NSError *error = nil;
     
-    for (NSString *letter in keyLetters) {
-        for (NSString *boyName in [[[dicoFromJson objectForKey:letter] objectForKey:@"Boys"] sortedArrayUsingSelector:@selector(compare:)]) {
-            Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
-                                                                    inManagedObjectContext:self.managedObjectContext];
-            [babie setValue:boyName forKey:@"name"];
-            [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
-            [babie setValue:[NSNumber numberWithBool:YES] forKey:@"type"];
-            [babie setValue:letter forKey:@"key"];
+    NSArray *babiesArrayToTest = [self.managedObjectContext executeFetchRequest:requestTest error:&error];
+    
+    if ([babiesArrayToTest count] == 0) {
+        NSBundle *bundle = [NSBundle mainBundle];
+        NSString *plistPath = [bundle pathForResource:@"DBName" ofType:@"json"];
+        NSData *jsonData = [NSData dataWithContentsOfFile:plistPath];
+        NSDictionary *dicoFromJson = [[NSDictionary alloc] init];
+        dicoFromJson = [jsonData objectFromJSONData];
+        
+        NSArray *keyLetters = [NSArray arrayWithArray:[dicoFromJson allKeys]];
+        keyLetters = [keyLetters sortedArrayUsingSelector:@selector(compare:)];
+        
+        for (NSString *letter in keyLetters) {
+            for (NSString *boyName in [[[dicoFromJson objectForKey:letter] objectForKey:@"Boys"] sortedArrayUsingSelector:@selector(compare:)]) {
+                Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
+                                                                        inManagedObjectContext:self.managedObjectContext];
+                [babie setValue:boyName forKey:@"name"];
+                [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+                [babie setValue:[NSNumber numberWithBool:YES] forKey:@"type"];
+                [babie setValue:letter forKey:@"key"];
+            }
+            for (NSString *girlName in [[[dicoFromJson objectForKey:letter] objectForKey:@"Girls"] sortedArrayUsingSelector:@selector(compare:)]) {
+                Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
+                                                                        inManagedObjectContext:self.managedObjectContext];
+                [babie setValue:girlName forKey:@"name"];
+                [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
+                [babie setValue:[NSNumber numberWithBool:NO] forKey:@"type"];
+                [babie setValue:letter forKey:@"key"];
+            }
         }
-        for (NSString *girlName in [[[dicoFromJson objectForKey:letter] objectForKey:@"Girls"] sortedArrayUsingSelector:@selector(compare:)]) {
-            Babies *babie = (Babies *)[NSEntityDescription insertNewObjectForEntityForName:@"Babies"
-                                                                    inManagedObjectContext:self.managedObjectContext];
-            [babie setValue:girlName forKey:@"name"];
-            [babie setValue:[NSNumber numberWithBool:NO] forKey:@"fav"];
-            [babie setValue:[NSNumber numberWithBool:NO] forKey:@"type"];
-            [babie setValue:letter forKey:@"key"];
-        }
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error])
+            NSLog(@"Saving changes failed : %@", error);
+    } else {
+        // nada
     }
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error])
-        NSLog(@"Saving changes failed : %@", error);
     
     /************************************************************/
     /*                   END - Initializing DB                  */
     /************************************************************/
-    
-    #endif
     
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
@@ -125,7 +138,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
