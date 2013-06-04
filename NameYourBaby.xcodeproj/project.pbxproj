@@ -27,6 +27,7 @@
 		905763B116008657008D0875 /* DBAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 905763B016008657008D0875 /* DBAccess.m */; };
 		905FCAF815EE3AF900265D5D /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 905FCAEF15EE26DA00265D5D /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		905FCAFA15EE528A00265D5D /* DBName.json in Resources */ = {isa = PBXBuildFile; fileRef = 905FCAF915EE528A00265D5D /* DBName.json */; };
+		9063CEBF175DE55E004EFACF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9063CEBE175DE55E004EFACF /* Crashlytics.framework */; };
 		908C92A815EBCCAF00E3C718 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92A715EBCCAF00E3C718 /* UIKit.framework */; };
 		908C92AA15EBCCAF00E3C718 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92A915EBCCAF00E3C718 /* Foundation.framework */; };
 		908C92AC15EBCCAF00E3C718 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C92AB15EBCCAF00E3C718 /* CoreGraphics.framework */; };
@@ -67,6 +68,7 @@
 		905FCAEE15EE26DA00265D5D /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		905FCAEF15EE26DA00265D5D /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		905FCAF915EE528A00265D5D /* DBName.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DBName.json; sourceTree = "<group>"; };
+		9063CEBE175DE55E004EFACF /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		908C92A315EBCCAF00E3C718 /* NameYourBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameYourBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908C92A715EBCCAF00E3C718 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		908C92A915EBCCAF00E3C718 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,6 +103,7 @@
 				908C92A815EBCCAF00E3C718 /* UIKit.framework in Frameworks */,
 				908C92AA15EBCCAF00E3C718 /* Foundation.framework in Frameworks */,
 				908C92AC15EBCCAF00E3C718 /* CoreGraphics.framework in Frameworks */,
+				9063CEBF175DE55E004EFACF /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +166,7 @@
 		908C92A615EBCCAF00E3C718 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9063CEBE175DE55E004EFACF /* Crashlytics.framework */,
 				900226C015FE173C00FABCA3 /* QuartzCore.framework */,
 				90B3A97A15F628CB0037629B /* MessageUI.framework */,
 				902E5E4E15EBD5F10051C538 /* CoreData.framework */,
@@ -215,6 +219,7 @@
 				908C929F15EBCCAF00E3C718 /* Sources */,
 				908C92A015EBCCAF00E3C718 /* Frameworks */,
 				908C92A115EBCCAF00E3C718 /* Resources */,
+				9063CEBD175DE536004EFACF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -279,6 +284,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9063CEBD175DE536004EFACF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run b3bcdce93e4c5843db8eb73320637a4294753e88";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		908C929F15EBCCAF00E3C718 /* Sources */ = {
@@ -379,6 +400,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Remy ALEXANDRE (37ZG2249EW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Remy ALEXANDRE (37ZG2249EW)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NameYourBaby/NameYourBaby-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=0";
@@ -395,6 +420,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Remy ALEXANDRE (7252L78MQ3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Remy ALEXANDRE (7252L78MQ3)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NameYourBaby/NameYourBaby-Prefix.pch";
 				INFOPLIST_FILE = "NameYourBaby/NameYourBaby-Info.plist";
