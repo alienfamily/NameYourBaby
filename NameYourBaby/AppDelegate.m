@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "JSONKit.h"
 #import <Crashlytics/Crashlytics.h>
+#import "Flurry.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // Flurry
+    [Flurry startSession:@"YWY628FJKHXVRXSFXXHP"];
     
     // Crashlitics
     [Crashlytics startWithAPIKey:@"b3bcdce93e4c5843db8eb73320637a4294753e88"];

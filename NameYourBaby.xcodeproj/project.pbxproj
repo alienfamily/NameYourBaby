@@ -20,6 +20,8 @@
 		9027D46E15F6B39400F4890A /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027D46C15F6B39400F4890A /* favorite.png */; };
 		9027D46F15F6B39400F4890A /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027D46D15F6B39400F4890A /* favorite@2x.png */; };
 		902E5E4F15EBD5F10051C538 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902E5E4E15EBD5F10051C538 /* CoreData.framework */; };
+		903A72741765B5E60081BE27 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 903A72731765B5E60081BE27 /* libFlurry.a */; };
+		903A72771765B6040081BE27 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903A72761765B6040081BE27 /* SystemConfiguration.framework */; };
 		903EB8CF1601EEFD00DD4303 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 903EB8CE1601EEFD00DD4303 /* Default-568h@2x.png */; };
 		905059D815EBD01800393577 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 905059D315EBD01800393577 /* navbar@2x.png */; };
 		905059E315EBD0E900393577 /* NameYourBaby.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 905059E115EBD0E900393577 /* NameYourBaby.xcdatamodeld */; };
@@ -58,6 +60,9 @@
 		9027D46C15F6B39400F4890A /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
 		9027D46D15F6B39400F4890A /* favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite@2x.png"; sourceTree = "<group>"; };
 		902E5E4E15EBD5F10051C538 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		903A72731765B5E60081BE27 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		903A72751765B5EF0081BE27 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		903A72761765B6040081BE27 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		903EB8CE1601EEFD00DD4303 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		905059D315EBD01800393577 /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar@2x.png"; sourceTree = "<group>"; };
 		905059E215EBD0E900393577 /* NameYourBaby.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NameYourBaby.xcdatamodel; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903A72771765B6040081BE27 /* SystemConfiguration.framework in Frameworks */,
 				900226C115FE173C00FABCA3 /* QuartzCore.framework in Frameworks */,
 				90B3A97B15F628CB0037629B /* MessageUI.framework in Frameworks */,
 				902E5E4F15EBD5F10051C538 /* CoreData.framework in Frameworks */,
@@ -104,12 +110,22 @@
 				908C92AA15EBCCAF00E3C718 /* Foundation.framework in Frameworks */,
 				908C92AC15EBCCAF00E3C718 /* CoreGraphics.framework in Frameworks */,
 				9063CEBF175DE55E004EFACF /* Crashlytics.framework in Frameworks */,
+				903A72741765B5E60081BE27 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		903A72721765B5C40081BE27 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				903A72751765B5EF0081BE27 /* Flurry.h */,
+				903A72731765B5E60081BE27 /* libFlurry.a */,
+			);
+			name = Flurry;
+			sourceTree = "<group>";
+		};
 		905059CE15EBCFEC00393577 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +149,7 @@
 		905FCAED15EE25F600265D5D /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				903A72721765B5C40081BE27 /* Flurry */,
 				90F944BA15FE2868007B0FF9 /* OLGhostAlertView.h */,
 				90F944BB15FE2868007B0FF9 /* OLGhostAlertView.m */,
 				905FCAEE15EE26DA00265D5D /* JSONKit.h */,
@@ -166,6 +183,7 @@
 		908C92A615EBCCAF00E3C718 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				903A72761765B6040081BE27 /* SystemConfiguration.framework */,
 				9063CEBE175DE55E004EFACF /* Crashlytics.framework */,
 				900226C015FE173C00FABCA3 /* QuartzCore.framework */,
 				90B3A97A15F628CB0037629B /* MessageUI.framework */,
@@ -408,6 +426,10 @@
 				GCC_PREFIX_HEADER = "NameYourBaby/NameYourBaby-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=0";
 				INFOPLIST_FILE = "NameYourBaby/NameYourBaby-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "F547DAAF-5D52-48D1-94F5-6C3C5A70AE77";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F547DAAF-5D52-48D1-94F5-6C3C5A70AE77";
@@ -427,6 +449,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NameYourBaby/NameYourBaby-Prefix.pch";
 				INFOPLIST_FILE = "NameYourBaby/NameYourBaby-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9D21A861-EEB2-40C7-90A2-153D1B610E40";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9D21A861-EEB2-40C7-90A2-153D1B610E40";
